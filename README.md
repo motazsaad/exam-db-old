@@ -1,2 +1,2 @@
-# exam-db-
+# exam-db
 Exam database CMS system 
