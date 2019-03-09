@@ -1,0 +1,105 @@
+﻿:root {
+    --main-bg-color: #007bff;
+    --main-bg-color-transparent: #007bffc2;
+    --gray-light: #f9f9f9;
+    --gray-dark: #f1f1f1
+}
+
+body {
+
+}
+a.black_link {
+    color: #333 !important
+}
+.logo_container {
+    margin-bottom: 60px
+
+}
+    .logo_container .logo_text {
+        font-weight: 400;
+        line-height: 2
+    }
+    .logo_container .logo_img {
+        width: 46px;
+        padding-bottom: 10px;
+    }
+
+.page_title {
+    font-weight: 700;
+    color: var(--main-bg-color)
+}
+p.p_under_title {
+    margin-bottom: 10px
+}
+hr.hr_under_title {
+    width: 60px;
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    background: var(--main-bg-color);
+    height: 2px;
+}
+
+section.hello_section {
+    background-image: url('images/writing-1149962_1280.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    color: #FFF;
+    height: 100%;
+
+   
+}
+.overlay {
+    background: var(--main-bg-color-transparent);
+    padding-bottom: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/****************************************************************************** animate login form field*/
+
+
+label {
+    position: absolute;
+    transform: translateY(11px);
+    left: 13px;
+    color: #aaa;
+    transition: all 0.25s ease;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    font-size: 14px;
+}
+
+    label.active {
+        transform: translateY(-20px);
+        left: 2px;
+        font-size: 14px;
+    }
+
+    label.highlight {
+        color: var(--main-bg-color)
+    }
+
+input.form-control {
+    font-weight: 500;
+    font-size: 20px;
+    background-color: var(--gray-light);
+    background-image: none;
+    color: #222;
+    border-color: var(--gray-dark)
+}
+input[type="submit"] {
+    font-size: 14px;
+    width: 180px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 40px
+}
+.field-wrap {
+    position: relative;
+    margin-bottom: 25px;
+}
