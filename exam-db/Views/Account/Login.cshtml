@@ -9,8 +9,8 @@
     <link href="~/Content/login.css" rel="stylesheet" />
 
 }
-    <div class="row">
-        <div class="col-md-5">
+    <div class="row login_page">
+        <div class="col-md-5  d-none d-md-block">
             <section class="hello_section">
 
                 <div class="overlay">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <p>
-                        @Html.ActionLink("Forgotten your password?", "", null, new { @class = "black_link" })
+                        @Html.ActionLink("Forgotten your password?", "", null, new { @class = "black_link forget_password" })
                     </p>
                     <div class="form-group">
                         <input type="submit" value="Sign in" class="btn btn-primary" />

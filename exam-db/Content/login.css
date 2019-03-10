@@ -11,8 +11,13 @@ body {
 a.black_link {
     color: #333 !important
 }
+a.forget_password {
+    font-size: 14px;
+    margin-bottom: 10px
+}
+
 .logo_container {
-    margin-bottom: 60px
+    margin-bottom: 30px
 
 }
     .logo_container .logo_text {
@@ -39,7 +44,9 @@ hr.hr_under_title {
     background: var(--main-bg-color);
     height: 2px;
 }
-
+.login_page {
+    margin-left: -30px
+}
 section.hello_section {
     background-image: url('images/writing-1149962_1280.jpg');
     background-position: center;
@@ -48,20 +55,26 @@ section.hello_section {
     position: relative;
     color: #FFF;
     height: 100%;
-
+}
+section.login_form_section {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20%
    
 }
 .overlay {
     background: var(--main-bg-color-transparent);
-    padding-bottom: 50px;
-    height: 100%;
+    height: calc(100vh - 55px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-/****************************************************************************** animate login form field*/
 
+/****************************************************************************** animate login form field*/
 
 label {
     position: absolute;
@@ -75,8 +88,8 @@ label {
 }
 
     label.active {
-        transform: translateY(-20px);
-        left: 2px;
+        transform: translateY(6px);
+        left: 13px;
         font-size: 14px;
     }
 
@@ -90,7 +103,7 @@ input.form-control {
     background-color: var(--gray-light);
     background-image: none;
     color: #222;
-    border-color: var(--gray-dark)
+    border-color: var(--gray-dark);
 }
 input[type="submit"] {
     font-size: 14px;
@@ -101,5 +114,14 @@ input[type="submit"] {
 }
 .field-wrap {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    width: 350px
+}
+
+
+/*Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+    .logo_container {
+        margin-top: 40px;
+    }
 }
