@@ -212,7 +212,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\logo-small.png" />
     <Content Include="Content\images\writing-1149962_1280.jpg" />
-    <Content Include="Content\login.css" />
+    <Content Include="Content\login_signup.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

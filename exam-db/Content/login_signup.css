@@ -8,9 +8,11 @@
 body {
 
 }
+
 a.black_link {
     color: #333 !important
 }
+
 a.forget_password {
     font-size: 14px;
     margin-bottom: 10px
@@ -33,9 +35,11 @@ a.forget_password {
     font-weight: 700;
     color: var(--main-bg-color)
 }
+
 p.p_under_title {
     margin-bottom: 10px
 }
+
 hr.hr_under_title {
     width: 60px;
     display: inline-block;
@@ -44,9 +48,11 @@ hr.hr_under_title {
     background: var(--main-bg-color);
     height: 2px;
 }
-.login_page {
+
+.login_page, .signup_page {
     margin-left: -30px
 }
+
 section.hello_section {
     background-image: url('images/writing-1149962_1280.jpg');
     background-position: center;
@@ -56,25 +62,26 @@ section.hello_section {
     color: #FFF;
     height: 100%;
 }
-section.login_form_section {
+
+section.login_form_section,
+section.signup_form_section  {
     height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     padding-left: 20%
-   
 }
+
 .overlay {
     background: var(--main-bg-color-transparent);
-    height: calc(100vh - 55px);
+    min-height: calc(100vh - 55px);
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-/****************************************************************************** animate login form field*/
 
 label {
     position: absolute;
@@ -105,6 +112,7 @@ input.form-control {
     color: #222;
     border-color: var(--gray-dark);
 }
+
 input[type="submit"] {
     font-size: 14px;
     width: 180px;
@@ -112,16 +120,62 @@ input[type="submit"] {
     padding-bottom: 10px;
     margin-bottom: 40px
 }
-.field-wrap {
+
+.login_field_wrap {
     position: relative;
     margin-bottom: 10px;
     width: 350px
 }
 
+.signup_field_wrap {
+    position: relative;
+    margin-bottom: 10px;
+ }
 
-/*Medium devices (tablets, 768px and up)*/
-@media (max-width: 768px) {
+
+ /*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+
+    .login_field_wrap {
+        width: auto
+    }
+}
+
+ /*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
     .logo_container {
         margin-top: 40px;
     }
+
+    /* make all fields has equal padding in small screen*/
+    .signup_field_col_sm {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+
+    section.login_form_section, section.signup_form_section {
+        padding-left: 5%
+    }
+}
+
+ /*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .logo_container {
+        margin-top: 40px;
+    }
+
+    /* make all fields has equal padding in small screen*/
+    .signup_field_col_sm {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+
+    section.login_form_section, section.signup_form_section {
+        padding-left: 10%
+    }
+}
+
+ /*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+    
 }

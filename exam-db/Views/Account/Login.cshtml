@@ -6,8 +6,7 @@
 
 @section style {
 
-    <link href="~/Content/login.css" rel="stylesheet" />
-
+    <link href="~/Content/login_signup.css" rel="stylesheet" />
 }
     <div class="row login_page">
         <div class="col-md-5  d-none d-md-block">
@@ -35,14 +34,14 @@
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
-                        <div class="field-wrap">
+                        <div class="login_field_wrap">
                             <label for="Email"> Email</label>
                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="field-wrap">
+                        <div class="login_field_wrap">
                             <label for="Password"> Password</label>
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
@@ -55,7 +54,7 @@
                         <input type="submit" value="Sign in" class="btn btn-primary" />
                     </div>
                     <p>
-                        Don't have an account? <a href="~/Home/Account/Register" class=""> Sign Up</a>
+                        Don't have an account? <a href="~/Account/Register" class=""> Sign Up</a>
                     </p>
                     @* Enable this once you have account confirmation enabled for password reset functionality
             <p>

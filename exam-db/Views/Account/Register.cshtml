@@ -3,38 +3,107 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<link href="~/Content/login_signup.css" rel="stylesheet" />
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
+
+<div class="row signup_page">
+    <div class="col-md-5  d-none d-md-block">
+        <section class="hello_section">
+
+            <div class="overlay">
+                <h1>Hello There!</h1>
+                <p>Please sign up to continue.</p>
+            </div>
+
+        </section>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
+    <div class="col-md-7">
+        <section class="signup_form_section">
+            <div class="logo_container">
+                <h2 class="logo_text"><img class="logo_img" src="~/Content/images/logo-small.png" /> <strong>Exam</strong>DB</h2>
+            </div>
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal signup_form", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4 class="page_title">@ViewBag.Title</h4>
+                <p class="p_under_title">Please sign up to continue.</p>
+                <hr class="hr_under_title" />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <div class="row">
+                    <div class="col-lg-6 pr-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="FirstName"> First Name</label>
+                                <input class="form-control" type="text" name="FirstName" id="FirstName" />
+                                @*  @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pl-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="LastName"> Last Name</label>
+                                <input class="form-control" type="text" name="LastName" id="LastName" />
+                                @* @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6  pr-1 signup_field_col_sm ">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="Email"> Email</label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pl-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="Password"> Password</label>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pr-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="Password"> Confirm Password</label>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Sign up" class="btn btn-primary" />
+                </div>
+                <p>
+                    Do you   have an account? <a href="~/Account/Login" class=""> Sign in</a>
+                </p>
+
+            }
+        </section>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
