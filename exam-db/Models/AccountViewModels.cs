@@ -68,6 +68,13 @@ namespace exam_db.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public int departmentId { get; set; }
+        public int collegeId { get; set; }
+
+
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -29,5 +29,15 @@ namespace exam_db.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<exam_db.Models.University> Universities { get; set; }
+
+        public System.Data.Entity.DbSet<exam_db.Models.College> Colleges { get; set; }
+
+        public System.Data.Entity.DbSet<exam_db.Models.Course> Courses { get; set; }
+
+        public System.Data.Entity.DbSet<exam_db.Models.Department> Departments { get; set; }
+
+        public System.Data.Entity.DbSet<exam_db.Models.File> Files { get; set; }
     }
 }

@@ -1,0 +1,90 @@
+﻿@model exam_db.Models.File
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>File</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.path)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.path)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.size)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.size)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.like_number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.like_number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.dislike_number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dislike_number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Download_number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Download_number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.view_numbre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.view_numbre)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
