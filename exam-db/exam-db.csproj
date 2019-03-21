@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201903211123372_editfile.Designer.cs">
       <DependentUpon>201903211123372_editfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903211128258_editAll.cs" />
+    <Compile Include="Migrations\201903211128258_editAll.Designer.cs">
+      <DependentUpon>201903211128258_editAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\College.cs" />
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903211123372_editfile.resx">
       <DependentUpon>201903211123372_editfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903211128258_editAll.resx">
+      <DependentUpon>201903211128258_editAll.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
