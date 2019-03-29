@@ -276,7 +276,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Universities\Create.cshtml" />
     <Content Include="Views\Universities\Delete.cshtml" />
@@ -303,8 +302,6 @@
     <Content Include="Views\Files\Details.cshtml" />
     <Content Include="Views\Files\Edit.cshtml" />
     <Content Include="Views\Files\Index.cshtml" />
-=======
->>>>>>> parent of 5d41234... Update Login & Registar pages
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
