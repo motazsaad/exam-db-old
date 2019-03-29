@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam-db", "exam-db\exam-db.csproj", "{F2DA6B11-C1A0-4FFE-8543-D09A45A86BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job Offers", "..\Job Offers\Job Offers\Job Offers.csproj", "{B534E4FF-ED7F-407D-83C8-0B5A93E157E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +17,15 @@ Global
 		{F2DA6B11-C1A0-4FFE-8543-D09A45A86BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2DA6B11-C1A0-4FFE-8543-D09A45A86BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2DA6B11-C1A0-4FFE-8543-D09A45A86BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B534E4FF-ED7F-407D-83C8-0B5A93E157E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B534E4FF-ED7F-407D-83C8-0B5A93E157E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B534E4FF-ED7F-407D-83C8-0B5A93E157E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B534E4FF-ED7F-407D-83C8-0B5A93E157E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1D9DF4AA-53AF-483C-B2FD-15024BC48402}
+		SolutionGuid = {4953B285-1C0C-4339-9536-2681F16E65D4}
 	EndGlobalSection
 EndGlobal
