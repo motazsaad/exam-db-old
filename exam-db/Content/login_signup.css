@@ -13,6 +13,10 @@ a.black_link {
     color: #333 !important
 }
 
+a.no_decoration {
+    text-decoration: none
+}
+
 a.forget_password {
     font-size: 14px;
     margin-bottom: 10px
@@ -20,12 +24,13 @@ a.forget_password {
 
 .logo_container {
     margin-bottom: 30px
-
 }
+
     .logo_container .logo_text {
         font-weight: 400;
         line-height: 2
     }
+
     .logo_container .logo_img {
         width: 46px;
         padding-bottom: 10px;
@@ -64,13 +69,13 @@ section.hello_section {
 }
 
 section.login_form_section,
-section.signup_form_section  {
+section.signup_form_section {
     height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    padding-left: 20%
+    padding-left: 15%
 }
 
 .overlay {
@@ -130,52 +135,99 @@ input[type="submit"] {
 .signup_field_wrap {
     position: relative;
     margin-bottom: 10px;
- }
+}
 
+.field_hint_icon {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    color: #9a9a9a;
+}
+.field_hint_icon:hover {
+    color:#444;
+}
+    .field_hint_icon:hover .field_hint_text {
+        display: inline-block
+    }
+    .field_hint_text {
+        display: none;
+        position: absolute;
+        top: -45px;
+        right: -200px;
+        width: 400px;
+        border-radius: 5px;
+        background: #333;
+        color: #fff;
+        padding: 5px 10px;
+        z-index: 1
+    }
 
- /*Extra small devices (portrait phones, less than 576px)*/
+.field_error_icon {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    color: #dc3545;
+}
+.validation-summary-errors ul {
+    padding-left: 0 !important;
+}
+.validation-summary-errors ul li {
+    background: #efefef;
+    padding: 5px 10px;
+    list-style: none;
+    border: 1px solid;
+}
+/*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
-
     .login_field_wrap {
-        width: auto
+            width: auto
+        }
+        .field_hint_text{
+            right: -20px !important
+        }
     }
-}
+    /*Small devices (landscape phones, less than 768px)*/
+    @media (max-width: 767.98px) {
+        .logo_container {
+            margin-top: 40px;
+        }
 
- /*Small devices (landscape phones, less than 768px)*/
-@media (max-width: 767.98px) {
-    .logo_container {
-        margin-top: 40px;
+        /* make all fields has equal padding in small screen*/
+        .signup_field_col_sm {
+            padding-right: 1rem !important;
+            padding-left: 1rem !important;
+        }
+
+        section.login_form_section, section.signup_form_section {
+            padding-left: 5%
+        }
+
+        input[type="submit"] {
+            width: 100%
+        }
+
+
     }
+    /*Medium devices (tablets, less than 992px)*/
+    @media (max-width: 991.98px) {
+        .logo_container {
+            margin-top: 40px;
+        }
 
-    /* make all fields has equal padding in small screen*/
-    .signup_field_col_sm {
-        padding-right: 1rem !important;
-        padding-left: 1rem !important;
+        /* make all fields has equal padding in small screen*/
+        .signup_field_col_sm {
+            padding-right: 1rem !important;
+            padding-left: 1rem !important;
+        }
+
+        section.login_form_section, section.signup_form_section {
+            padding-left: 10%
+        }
+
+        .field_hint_text {
+            right: 0px
+        }
     }
-
-    section.login_form_section, section.signup_form_section {
-        padding-left: 5%
+    /*Large devices (desktops, less than 1200px)*/
+    @media (max-width: 1199.98px) {
     }
-}
-
- /*Medium devices (tablets, less than 992px)*/
-@media (max-width: 991.98px) {
-    .logo_container {
-        margin-top: 40px;
-    }
-
-    /* make all fields has equal padding in small screen*/
-    .signup_field_col_sm {
-        padding-right: 1rem !important;
-        padding-left: 1rem !important;
-    }
-
-    section.login_form_section, section.signup_form_section {
-        padding-left: 10%
-    }
-}
-
- /*Large devices (desktops, less than 1200px)*/
-@media (max-width: 1199.98px) {
-    
-}

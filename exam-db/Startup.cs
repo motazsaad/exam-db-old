@@ -9,6 +9,7 @@ namespace exam_db
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
         }
     }
 }
