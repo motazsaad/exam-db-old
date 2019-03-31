@@ -10,6 +10,8 @@ namespace exam_db.Controllers
     {
         public ActionResult Index()
         {
+
+        
             return View();
         }
 

@@ -9,13 +9,7 @@ body {
     padding: 0
 }
 
-a.black_link {
-    color: #333 !important
-}
 
-a.no_decoration {
-    text-decoration: none
-}
 
 a.forget_password {
     font-size: 14px;
@@ -172,7 +166,7 @@ input[type="submit"] {
     padding-left: 0 !important;
 }
 .validation-summary-errors ul li {
-    background: #efefef;
+    background: #fff;
     padding: 5px 10px;
     list-style: none;
     border: 1px solid;

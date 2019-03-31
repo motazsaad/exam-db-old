@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Register Succeeded";
+
+}
+<link href="~/Content/customAnimation.css" rel="stylesheet" />
+
+<style>
+    .success_box {
+        background: #fff;
+        padding: 20px;
+        width: 600px;
+        margin: 30px auto 0;
+        box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
+    }
+
+    .success_btn {
+        width: 150px;
+        margin-top: 15px;
+        border-radius: 0;
+    }
+
+    .btn-outline-primary.success_btn:hover {
+        box-shadow: 1px 1px 3px -1px #525252;
+    }
+</style>
+
+@if (TempData["RegisterSucceeded"] != null)
+{
+    <div class="success_box text-center">
+        <div class="success-checkmark">
+            <div class="check-icon">
+                <span class="icon-line line-tip"></span>
+                <span class="icon-line line-long"></span>
+                <div class="icon-circle"></div>
+                <div class="icon-fix"></div>
+            </div>
+        </div>
+        <h2>Welcome @User.Identity.GetUserName()</h2>
+        <h5>Registration successfully submitted!</h5>
+        <h5>thank you</h5>
+
+        <a href="~/Home" class="btn btn-outline-primary success_btn">continue</a>
+    </div>
+
+}
+else
+{
+    Response.Redirect("~/Home");
+}
+

@@ -5,18 +5,36 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+    <div class="nav navbar-nav navbar-right">
+
+        <div class="dropdown">
+            <div class="dropdown-toggle" id="dropdownUserMenu"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="navbar-user-img" src="~/Content/images/avatar.png" />
+                <span>
+                    <a href="~/Manage/Index" class="black_link ">@User.Identity.GetUserName()</a>
+                </span>
+
+            </div>
+
+            <div class="dropdown-menu dropdownUserMenu" aria-labelledby="dropdownUserMenu">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </div>
+        </div>
+
+        
+
+    </div>
+
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li  class="nav-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
-        <li  class="nav-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+        <li  class="nav-item"><a class="nav-link" href="~/Account/Register" id="registerLink"><i class="fa fa-user-plus"></i> Sign up</a></li>
+        <li  class="nav-item"><a class="nav-link" href="~/Account/Login" id="loginLink"><i class="fa fa-sign-in"></i> Log in</a></li>
     </ul>
 }
+@*<ul>
+    <li><a class="" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>*@

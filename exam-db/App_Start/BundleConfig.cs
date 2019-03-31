@@ -26,6 +26,7 @@ namespace exam_db
                       "~/Scripts/site.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/font-awesome.min.css",
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
         }

@@ -1,6 +1,10 @@
-﻿body {
-    padding-top: 55px;
+﻿:root {
+    --main-bg-app: #fafafa;
     
+}
+body {
+    padding-top: 55px;
+    background: var(--main-bg-app)
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,4 +13,35 @@
     padding-right: 15px;
 
 }
+.navbar-user-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 1px;
+    object-fit: cover;
+    object-position: center right;
+}
+.navbar-brand {
+    font-weight: bold;
+    padding: 5px 0 0;
+}
+img.navbar-logo {
+    width: 24px;
+    padding-bottom: 5px;
+}
+.dropdownUserMenu {
+    border-radius: 0;
+    border: 0.5px solid #f1f1f1;
+    box-shadow: 1px 1px 4px -4px #333;
+}
+nav.navbar {
+    background: #fff;
+    box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
+}
+a.black_link {
+    color: #333 !important
+}
 
+a.no_decoration {
+    text-decoration: none
+}

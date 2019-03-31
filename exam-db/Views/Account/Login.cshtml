@@ -1,12 +1,14 @@
 ﻿@using exam_db.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Sign in";
+    ViewBag.Title = "Log in";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
+
+
+   
 }
 
 @section style {
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/login_signup.css" rel="stylesheet" />
 }
     <div class="row login_page">
@@ -40,7 +42,7 @@
                     <div class="form-group">
                         <div class="login_field_wrap">
                             <label for="Email"> Email</label>
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", required = "required" })
 
                             @if (ViewData.ModelState["Email"] != null && ViewData.ModelState["Email"].Errors.Any())
                             {
@@ -53,7 +55,7 @@
                     <div class="form-group">
                         <div class="login_field_wrap">
                             <label for="Password"> Password</label>
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
                             @if (ViewData.ModelState["Password"] != null && ViewData.ModelState["Password"].Errors.Any())
                             {
                                 <i class="fa fa-info-circle field_error_icon"></i>
@@ -62,18 +64,15 @@
                         </div>
                     </div>
                     <p>
+                        @* Enable this once you have account confirmation enabled for password reset functionality*@
                         @Html.ActionLink("Forgotten your password?", "", null, new { @class = "black_link forget_password" })
                     </p>
                     <div class="form-group">
-                        <input type="submit" value="Sign in" class="btn btn-primary" />
+                        <input type="submit" value="Log in" class="btn btn-primary" />
                     </div>
                     <p>
                         Don't have an account? <a href="~/Account/Register" class=""> Sign Up</a>
                     </p>
-                    @* Enable this once you have account confirmation enabled for password reset functionality
-            <p>
-                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-            </p>*@
                 }
             </section>
         </div>

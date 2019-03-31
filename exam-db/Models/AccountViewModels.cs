@@ -48,9 +48,8 @@ namespace exam_db.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "You must specify an emil to log in.")]
         [Display(Name = "Email")]
-        [EmailAddress]
         public string Email { get; set; }
 
         [Required]

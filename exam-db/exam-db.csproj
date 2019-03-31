@@ -210,8 +210,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\customAnimation.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\avatar.png" />
     <Content Include="Content\images\logo-small.png" />
     <Content Include="Content\images\writing-1149962_1280.jpg" />
     <Content Include="Content\login_signup.css" />
@@ -269,6 +271,7 @@
     <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Account\RegisterSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

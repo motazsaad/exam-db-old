@@ -2,10 +2,9 @@
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
-
+    
 }
 
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/login_signup.css" rel="stylesheet" />
 
 
@@ -63,7 +62,7 @@
                     <div class="form-group">
                         <div class="signup_field_wrap">
                             <label for="Email"> Email</label>
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type="email", required = "required" })
                             @if (ViewData.ModelState["Email"] != null && ViewData.ModelState["Email"].Errors.Any())
                             {
                                 <i class="fa fa-info-circle field_error_icon"></i>
@@ -76,7 +75,7 @@
                     <div class="form-group">
                         <div class="signup_field_wrap">
                             <label for="Password"> Password</label>
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
 
 
                             @if (ViewData.ModelState["Password"] != null && ViewData.ModelState["Password"].Errors.Any())
@@ -98,7 +97,7 @@
                     <div class="form-group">
                         <div class="signup_field_wrap">
                             <label for="Password"> Confirm Password</label>
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", required = "required" })
                             @if (ViewData.ModelState["ConfirmPassword"] != null && ViewData.ModelState["ConfirmPassword"].Errors.Any())
                             {
                                 <i class="fa fa-info-circle field_error_icon"></i>
@@ -114,7 +113,7 @@
                 <input type="submit" value="Sign up" class="btn btn-primary" />
             </div>
             <p>
-                Do you   have an account? <a href="~/Account/Login" class=""> Sign in</a>
+                Do you   have an account? <a href="~/Account/Login" class=""> Log in</a>
             </p>
 
             }
