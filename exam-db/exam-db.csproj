@@ -209,14 +209,27 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\customAnimation.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\homepage.css" />
     <Content Include="Content\images\avatar.png" />
+    <Content Include="Content\images\cloud.png" />
+    <Content Include="Content\images\files_types\csv.png" />
+    <Content Include="Content\images\files_types\doc.png" />
+    <Content Include="Content\images\files_types\jpg.png" />
+    <Content Include="Content\images\files_types\png.png" />
+    <Content Include="Content\images\files_types\ppt.png" />
+    <Content Include="Content\images\files_types\txt.png" />
+    <Content Include="Content\images\files_types\xls.png" />
     <Content Include="Content\images\logo-small.png" />
+    <Content Include="Content\images\files_types\pdf.png" />
     <Content Include="Content\images\writing-1149962_1280.jpg" />
+    <Content Include="Content\jquery.dm-uploader.min.css" />
     <Content Include="Content\login_signup.css" />
+    <Content Include="Content\pretty-checkbox.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -225,7 +238,9 @@
     </Content>
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery.dm-uploader.min.js" />
     <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\upload_file_ui.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

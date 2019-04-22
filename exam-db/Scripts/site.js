@@ -1,8 +1,8 @@
 ﻿
 $(window).on('load', function () {
-    
+
     // animate login & signup fields placeholder
-    $('.login_form, .signup_form').find('input:not([type="submit"]), textarea').on('keyup  blur focus', function (e) {
+    $('.login_form, .signup_form, .upload_file_modal').find('input:not([type="submit"]), textarea').on('keyup  blur focus', function (e) {
 
         var $this = $(this),
             label = $this.prev('label');
@@ -47,5 +47,36 @@ $(window).on('load', function () {
         }
     });
 
-   
+
+    /* Open & Close Navigation */
+    $('.bars').on("click", function () {
+        $('.bars .bar').toggleClass('bar-close');
+        $('.navbar_circle').toggleClass('navbar_circle_show');
+        $('.navbar_circle ol li#nabbar_animate_1').toggleClass('animated fadeInRight');
+        $('.navbar_circle ol li#nabbar_animate_2').toggleClass('animated fadeInRight delay-hs');
+        $('.navbar_circle ol li#nabbar_animate_3').toggleClass('animated fadeInRight delay-s');
+
+    });
+
+    $(document).mouseup(function (e) {
+        var container = $(".navbar_circle");
+        var closeBtn = $('.bars');
+        var isOpen = $('.navbar_circle').hasClass('navbar_circle_show');
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0 && isOpen && !closeBtn.is(e.target) && closeBtn.has(e.target).length === 0) {
+            $('.bars').click();
+        }
+    });
+
+
+    /* Search filter button */
+    $('.search_container .filter_btn').on("click", function () {
+        $(this).toggleClass('avtive_color');
+        $('.search_filters_container').toggleClass('search_filters_container_show');
+        $('.search_filters_container').toggleClass('animated flipInX faster');
+    });
+
+
+ 
+
 });

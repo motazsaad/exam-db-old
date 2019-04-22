@@ -11,31 +11,71 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
+            <!-- Brand -->
             <a class="navbar-brand" href="~/Home/Index">
-                <img class="navbar-logo" src="~/Content/images/logo-small.png" /> ExamDB
+                <img class="navbar-logo" src="~/Content/images/logo-small.png" /> Exam<span>DB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <!-- Search -->
+            <div class="search_container">
+                <input type="text" class="search_input" placeholder="Search For Exams" />
+                <button class="filter_btn"><i class="fa fa-filter"></i></button>
+            </div>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Home/About">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Home/Contact">Contact</a>
-                    </li>
+            <div class="search_filters_container">
+                <div class="pretty  p-default p-curve">
+                    <input type="checkbox" value="midterm" />
+                    <div class="state p-primary-o">
+                        <label class="bold_custom">Midterm</label>
+                    </div>
+                </div>
+                <div class="pretty  p-default p-curve">
+                    <input type="checkbox" value="final" />
+                    <div class="state p-primary-o">
+                        <label class="bold_custom">Final</label>
+                    </div>
+                </div>
 
-                </ul>
-                @Html.Partial("_LoginPartial")
+                <div class="pretty p-default p-curve check_all_filter">
+                    <input type="checkbox" value="all" />
+                    <div class="state p-primary-o">
+                        <label class="bold_custom">All</label>
+                    </div>
+                </div>
 
             </div>
+
+
+
+            @Html.Partial("_LoginPartial")
+
+            <!-- Start Navigation Button -->
+
+            <div class="bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="navbar_circle">
+                <ol class="list-unstyled">
+                    <a href="~/Home/Index" class="no_decoration">
+                        <li id="nabbar_animate_1" class="bold_custom">Home</li>
+                    </a>
+                    <a href="~/Home/About" class="no_decoration">
+                        <li id="nabbar_animate_2" class="bold_custom">About us</li>
+                    </a>
+                    <a href="~/Home/Contact" class="no_decoration">
+                        <li id="nabbar_animate_3" class="bold_custom">Contact us</li>
+                    </a>
+
+                </ol>
+            </div>
+
+
+            <!-- End Navigation Button -->
+           
         </div>
-    </nav>
+</nav>
 
 
 

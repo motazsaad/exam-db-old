@@ -11,14 +11,14 @@
             <div class="dropdown-toggle" id="dropdownUserMenu"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="navbar-user-img" src="~/Content/images/avatar.png" />
                 <span>
-                    <a href="~/Manage/Index" class="black_link ">@User.Identity.GetUserName()</a>
+                    <a href="~/Manage/Index" class="black_link bold_custom">@User.Identity.GetUserName()</a>
                 </span>
 
             </div>
 
-            <div class="dropdown-menu dropdownUserMenu" aria-labelledby="dropdownUserMenu">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            <div class="dropdown-menu dropdownUserMenu animated fadeInDown faster" aria-labelledby="dropdownUserMenu">
+                <a class="dropdown-item bold_custom dropdownUserMenu_item " href="#"><i class="fa fa-user-circle-o"></i> My Profile</a>
+                <a class="dropdown-item bold_custom dropdownUserMenu_item" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i> Sign out</a>
             </div>
         </div>
 

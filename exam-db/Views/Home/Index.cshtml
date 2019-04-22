@@ -2,4 +2,365 @@
     ViewBag.Title = "Home Page";
 }
 
+<link href="~/Content/jquery.dm-uploader.min.css" rel="stylesheet" />
+<link href="~/Content/homepage.css" rel="stylesheet" />
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Start Side Nav Section -->
+        <div class="col-md-3">
+            <div class="side_nav">
+                <div class="holder">
+                    <h6 class="side_nav_headers"><i class="fa fa-clock-o"></i> Recent Searches</h6>
+                    <ul class="list-unstyled side_nav_list">
+                        <a href="#"><li>database exam <a href="#"> <i class="fa fa-close"></i></a> </li></a>
+                        <a href="#"><li>data strucher mid exam <a href="#"> <i class="fa fa-close"></i></a> </li></a>
+                        <a href="#"><li>web design final <a href="#"> <i class="fa fa-close"></i></a></li> </a>
+                        <a href="#"><li>bla bla bla <a href="#"> <i class="fa fa-close"></i></a></li></a>
+                        <a href="#"><li>bla bla bla <a href="#"> <i class="fa fa-close"></i></a></li></a>
+                    </ul>
+                    <h6 class="side_nav_headers"><i class="fa fa-list-alt"></i> Categories</h6>
+                    <ul class="list-unstyled side_nav_list">
+                        <a href="#"><li>University requirement</li></a>
+                        <a href="#"><li>Department requirement</li></a>
+                        <a href="#"><li>Specialty requirement</li></a>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Side Nav Section -->
+        <!-- Start Content Section-->
+        <div class="col-md-9">
+            <div class="homepage_contant">
+                <div class="container">
+                    <!-- Start File Upload Section -->
+                    <h4>File Upload</h4>
+
+                    <form id="drag-and-drop-zone" class=" upload_container" action="/file-upload" method="POST" enctype="multipart/form-data">
+                        <div class="text-center">
+                            <img class="cloud_upload_img" src="~/Content/images/cloud.png" />
+                            <p>Drag &amp; Drop Files Here or <span class="browse_btn_holder">Browse <input class="browse_btn" type="file" title='Click to add Files' /> </span> to upload files</p>
+
+                        </div>
+                        
+                        <!-- Modal -->
+                        <div class="upload_file_modal modal fade" id="uploadFileModal" tabindex="-1" role="dialog" aria-labelledby="uploadFileModal" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">File Upload</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="container">
+                                            <ul class="list-unstyled p-2 d-flex flex-column col" style="padding:0 !important" id="files">
+                                                <li class="text-muted text-center empty">No files uploaded.</li>
+                                            </ul>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <div class="upload_field_wrap">
+                                                            <label for="ItemTitle"> File Title</label>
+                                                            <input type="text" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <div class="upload_field_wrap">
+                                                            <select class="form-control">
+                                                                <option value="" disabled selected>Department</option>
+                                                                <option value="">value 1</option>
+                                                                <option value="">value 2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <div class="upload_field_wrap">
+                                                            <select class="form-control">
+                                                                <option value="" disabled selected>Course Name</option>
+                                                                <option value="">value 1</option>
+                                                                <option value="">value 2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <div class="upload_field_wrap">
+                                                            <label for="description">Description</label>
+                                                            <textarea class="form-control" id="" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                  
+                    
+
+                   
+                    <!-- End File Upload Section -->
+                    <!-- Start Recommended Section -->
+                    <h4>Recommended</h4>
+                    <ul class="list-unstyled recommended_list">
+                        <!-- Start list item show (repeat it inside for loop)-->
+                        <li>
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="#">
+                                                        <h6 class="item_title">database midterm exam</h6>
+                                                    </a>
+                                                    <a class="black_link no_decoration" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i> 184
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> 301
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> 190
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End list item show (repeat it inside for loop)-->
+
+                        <li>
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="#">
+                                                        <h6 class="item_title">database midterm exam</h6>
+                                                    </a>
+                                                    <a class="black_link no_decoration" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i> 184
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> 301
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> 190
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="#">
+                                                        <h6 class="item_title">database midterm exam</h6>
+                                                    </a>
+                                                    <div class="item_owner">
+                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                        <span class="item_owner_name">omar kishko</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i> 184
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> 301
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> 190
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- End Recommended Section -->
+                </div>
+            </div>
+        </div>
+        <!-- End Content Section-->
+
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script src="~/Scripts/jquery.dm-uploader.min.js"></script>
+    <script src="~/Scripts/upload_file_ui.js"></script>
+    <script>
+        $(function () {
+            /*
+             * drag & drop file uploding plugin configuration & callbacks.
+             */
+            $('#drag-and-drop-zone').dmUploader({ //
+                url: 'backend/upload.php',
+                maxFileSize: 3000000, // 3 Megs
+                onDragEnter: function () {
+                    // Happens when dragging something over the DnD area
+                    this.addClass('active');
+                    $('.upload_container .cloud_upload_img').addClass('animated infinite shake');
+                },
+                onDragLeave: function () {
+                    // Happens when dragging something OUT of the DnD area
+                    this.removeClass('active');
+                    $('.upload_container .cloud_upload_img').removeClass('animated infinite shake');
+
+                },
+                onInit: function () {
+                    // Plugin is ready to use
+                    ui_add_log('Penguin initialized :)', 'info');
+                },
+                onComplete: function () {
+                    // All files in the queue are processed (success or error)
+                    ui_add_log('All pending tranfers finished');
+                },
+                onNewFile: function (id, file) {
+                    // When a new file is added using the file selector or the DnD area
+                    ui_add_log('New file added #' + id);
+                    ui_multi_add_file(id, file);
+
+                    $('#uploadFileModal').modal("show")
+
+                },
+                onBeforeUpload: function (id) {
+                    // about tho start uploading a file
+                    ui_add_log('Starting the upload of #' + id);
+                    ui_multi_update_file_status(id, 'uploading', 'Uploading...');
+                    ui_multi_update_file_progress(id, 0, '', true);
+                },
+                onUploadCanceled: function (id) {
+                    // Happens when a file is directly canceled by the user.
+                    ui_multi_update_file_status(id, 'warning', 'Canceled by User');
+                    ui_multi_update_file_progress(id, 0, 'warning', false);
+                },
+                onUploadProgress: function (id, percent) {
+                    // Updating file progress
+                    ui_multi_update_file_progress(id, percent);
+                },
+                onUploadSuccess: function (id, data) {
+                    // A file was successfully uploaded
+                    ui_add_log('Server Response for file #' + id + ': ' + JSON.stringify(data));
+                    ui_add_log('Upload of file #' + id + ' COMPLETED', 'success');
+                    ui_multi_update_file_status(id, 'success', 'Upload Complete');
+                    ui_multi_update_file_progress(id, 100, 'success', false);
+                },
+                onUploadError: function (id, xhr, status, message) {
+                    ui_multi_update_file_status(id, 'danger', message);
+                    ui_multi_update_file_progress(id, 0, 'danger', false);
+                },
+                onFallbackMode: function () {
+                    // When the browser doesn't support this plugin :(
+                    ui_add_log('Plugin cant be used here, running Fallback callback', 'danger');
+                },
+                onFileSizeError: function (file) {
+                    ui_add_log('File \'' + file.name + '\' cannot be added: size excess limit', 'danger');
+                }
+            });
+        });
+    </script>
+}
+
+
+<!-- Debug item template -->
+<script type="text/html" id="debug-template">
+    <li class="list-group-item text-%%color%%"><strong>%%date%%</strong>: %%message%%</li>
+</script>
+
+<!-- File item template -->
+<script type="text/html" id="files-template">
+    <li class="uploaded_item">
+        <div class="item_body">
+            <div class="item_img_and_info_holder">
+                <div class="item_type_img_holder">
+                    <img class="item_type_img" src="../../Content/images/files_types/pdf.png" />
+                </div>
+                <div class="item_info" style="width: 100%">
+                    <h6 class="item_title">%%filename%% </h6>
+                    <div class="item_details" style="margin-bottom: 10px;">
+                        <span class="item_size">00.0 MB</span> <span> Status: </span> <span class="text-muted status">Waiting</span> <span class="item_progress_value">44%</span>
+                    </div>
+                    <div class="progress file_upload_progress mb-2">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                             role="progressbar"
+                             style="width: 0%"
+                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
 

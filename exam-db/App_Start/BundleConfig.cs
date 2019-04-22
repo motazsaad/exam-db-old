@@ -23,10 +23,13 @@ namespace exam_db
                       "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/mainScript").Include(
+
                       "~/Scripts/site.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/font-awesome.min.css",
+                      "~/Content/pretty-checkbox.min.css",
+                      "~/Content/animate.css",
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
         }

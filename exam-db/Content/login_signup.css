@@ -9,8 +9,20 @@ body {
     padding: 0
 }
 
+html {
+    overflow: hidden
+}
+/* start login navbar */
 
-
+.login_page_navigation {
+    position: absolute;
+    top: 30px;
+    right: 40px
+}
+.navbar_circle {
+    z-index: 9;
+}
+/* end login navbar */
 a.forget_password {
     font-size: 14px;
     margin-bottom: 10px
