@@ -69,7 +69,7 @@ input.search_input {
     .search_container {
         position: relative
     }
-    .search_container::after {
+    /*.search_container::after {
         content: "\f002";
         font: normal normal normal 14px/1 FontAwesome;
         display: inline-block;
@@ -80,7 +80,13 @@ input.search_input {
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-    }
+    }*/
+.search_container .fa-search{
+    position: absolute;
+    top: 12px;
+    right: 42px;
+    color: #a2a2a2;
+}
         .search_container .filter_btn {
             border: none;
             background: transparent;
@@ -246,3 +252,98 @@ a.dropdownUserMenu_item {
 
 
     /* End Navbar Style */
+
+
+    /*Start Item Design */
+.item {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all .2s ease-in-out
+}
+
+    .item:hover {
+        box-shadow: 0px 3px 10px -3px #d6dcdf;
+    }
+
+        .item:hover .statistic:first-of-type {
+            color: #e53939 !important
+        }
+
+        .item:hover .statistic:nth-of-type(2) {
+            color: #017ec0 !important
+        }
+
+        .item:hover .statistic:nth-of-type(3) {
+            color: #297f29 !important
+        }
+
+    .item .item_body {
+        padding: 20px;
+    }
+
+        .item .item_body .item_img_and_info_holder {
+            display: flex
+        }
+
+        .item .item_body .item_type_img_holder {
+        }
+
+            .item .item_body .item_type_img_holder .item_type_img {
+                width: 45px
+            }
+
+
+        .item .item_body .item_info {
+            flex-flow: column;
+            margin-left: 20px;
+        }
+
+            .item .item_body .item_info .item_title {
+                margin-bottom: 5px;
+                max-width: 400px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+                .item .item_body .item_info .item_title:hover {
+                    color: #3c79ea
+                }
+
+            .item .item_body .item_info .item_owner {
+                display: inline-block;
+            }
+
+                .item .item_body .item_info .item_owner:hover .item_owner_name {
+                    color: #3c79ea
+                }
+
+                .item .item_body .item_info .item_owner .item_owner_img {
+                    width: 22px;
+                    border-radius: 50%;
+                    background: transparent
+                }
+
+                .item .item_body .item_info .item_owner .item_owner_name {
+                    font-size: 12px;
+                    color: #727272;
+                }
+
+        .item .item_body .item_statistics {
+            margin-left: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+            .item .item_body .item_statistics .statistic {
+                color: #727272;
+                transition: all 0.2s ease-in-out
+            }
+
+                .item .item_body .item_statistics .statistic i.fa {
+                    margin-right: 5px;
+                }
+    /*End Item Design */

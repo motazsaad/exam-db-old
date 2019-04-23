@@ -16,10 +16,12 @@
                 <img class="navbar-logo" src="~/Content/images/logo-small.png" /> Exam<span>DB</span>
             </a>
             <!-- Search -->
-            <div class="search_container">
+            
+            <form id="search_form" method="get" action="~/Home/Search" class="search_container">
                 <input type="text" class="search_input" placeholder="Search For Exams" />
+                <i onclick="document.getElementById('search_form').submit();" style="cursor:pointer" class="fa fa-search"></i>
                 <button class="filter_btn"><i class="fa fa-filter"></i></button>
-            </div>
+            </form>
 
             <div class="search_filters_container">
                 <div class="pretty  p-default p-curve">

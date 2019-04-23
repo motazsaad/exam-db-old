@@ -28,6 +28,12 @@ namespace exam_db.Controllers
             return View();
         }
 
+        public ActionResult Search()
+        {
+
+            return View();
+        }
+
         
     }
 }

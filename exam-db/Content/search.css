@@ -1,0 +1,17 @@
+﻿body {
+}
+
+.search_page {
+    background: #fff;
+    padding: 50px;
+}
+    .search_page .search_page_title {
+        margin-bottom: 0px
+    }
+    .search_page nav.pagination_nav {
+        display: flex;
+        justify-content: space-between;
+    }
+.bottom_nav_pagination .pagination {
+    justify-content: flex-end
+}

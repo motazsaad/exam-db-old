@@ -230,6 +230,7 @@
     <Content Include="Content\jquery.dm-uploader.min.css" />
     <Content Include="Content\login_signup.css" />
     <Content Include="Content\pretty-checkbox.min.css" />
+    <Content Include="Content\search.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -287,6 +288,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\RegisterSuccess.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
