@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2041
+VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam-db", "exam-db\exam-db.csproj", "{F2DA6B11-C1A0-4FFE-8543-D09A45A86BFD}"
 EndProject
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4953B285-1C0C-4339-9536-2681F16E65D4}
+		SolutionGuid = {1D9DF4AA-53AF-483C-B2FD-15024BC48402}
 	EndGlobalSection
 EndGlobal
