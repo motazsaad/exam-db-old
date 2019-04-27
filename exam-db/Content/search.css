@@ -4,6 +4,7 @@
 .search_page {
     background: #fff;
     padding: 50px;
+    min-height: calc(100vh - 65px)
 }
     .search_page .search_page_title {
         margin-bottom: 0px

@@ -1,9 +1,8 @@
 ﻿@model exam_db.Models.Course
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -19,19 +18,19 @@
             <dt>
                 @Html.DisplayNameFor(model => model.department.name)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.department.name)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.name)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.name)
             </dd>
-    
+
         </dl>
     </div>
     <p>
