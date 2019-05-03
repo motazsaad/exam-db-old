@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+//this class contain View model of All Required model to deal with 
 namespace exam_db.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
