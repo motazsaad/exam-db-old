@@ -9,9 +9,21 @@ namespace exam_db.Models
 
     public enum FileType
     {
+
+        csv,
+        txt,
         png,
         Jpg,
-        Pdf
+        Pdf,
+        ppt,
+        xls,
+        docx,
+        number,
+        pages,
+        key,
+        rtf,
+        oft,
+        lba
     }
     public class File
     { 
