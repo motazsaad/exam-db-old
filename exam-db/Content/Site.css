@@ -81,16 +81,17 @@ input.search_input {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }*/
-.search_container .fa-search{
-    position: absolute;
-    top: 12px;
-    right: 42px;
-    color: #a2a2a2;
-}
+        .search_container .fa-search {
+            position: absolute;
+            top: 11px;
+            right: 28px;
+            color: #a2a2a2;
+        }
         .search_container .filter_btn {
             border: none;
             background: transparent;
             outline: none;
+            cursor: pointer
         }
             .search_container .filter_btn:hover {
                 color: var(--main-color)

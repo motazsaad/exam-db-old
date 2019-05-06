@@ -21,6 +21,11 @@ namespace exam_db.Controllers
             return View(courses.ToList());
         }
 
+        public ActionResult Course()
+        {
+            return View();
+        }
+
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {

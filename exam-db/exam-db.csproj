@@ -339,6 +339,9 @@
     <Content Include="Views\Universities\Edit.cshtml" />
     <Content Include="Views\Universities\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Courses\Course.cshtml" />
+    <None Include="Properties\PublishProfiles\examdb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\examdb - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

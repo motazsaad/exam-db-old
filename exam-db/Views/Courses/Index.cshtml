@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; ;
 }
 
-    <link href="~/Content/courses.css" rel="stylesheet" />
+<link href="~/Content/courses.css" rel="stylesheet" />
 
 <div class="container">
     <div class="courses_page">
@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -142,7 +142,7 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -191,7 +191,7 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -207,7 +207,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -223,7 +223,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="#">
+                        <a class="black_link no_decoration" href="~/Courses/Course">
                             <div class="course_card">
                                 <div class="course_title">
 
@@ -254,29 +254,19 @@
     </div>
 </div>
 
+@section scripts {
 
+    <script>
+        // Javascript to enable link to tab
+        var url = document.location.toString();
+        if (url.match('#')) {
+            $('.nav-tabs a[href="#' + url.split('#')[1] + '"]').tab('show');
+        }
 
-        @*<table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.department.name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.name)
-                </th>
-            </tr>
+        // Change hash for page-reload
+        $('.nav-tabs a').on('shown.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+        })
+    </script>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.department.name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.name)
-                    </td>
-
-                </tr>
-            }
-
-        </table>*@
+}
