@@ -21,18 +21,18 @@ namespace exam_db.Controllers
         }
 
         // GET: Files/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(/*int? id*/)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            File file = db.Files.Find(id);
-            if (file == null)
-            {
-                return HttpNotFound();
-            }
-            return View(file);
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //File file = db.Files.Find(id);
+            //if (file == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            return View(/*file*/);
         }
 
         // GET: Files/Create

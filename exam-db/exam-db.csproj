@@ -240,6 +240,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\courses.css" />
     <Content Include="Content\customAnimation.css" />
+    <Content Include="Content\file-item-page.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\homepage.css" />
