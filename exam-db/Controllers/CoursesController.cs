@@ -26,6 +26,11 @@ namespace exam_db.Controllers
             return View();
         }
 
+        public ActionResult UniversitiyReq()
+        {
+            return View();
+        }
+
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {

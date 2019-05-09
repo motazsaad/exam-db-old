@@ -6,35 +6,28 @@ using System.Web.Mvc;
 
 namespace exam_db.Controllers
 {
-    public class HomeController : Controller
+    public class WebController : Controller
     {
-        public ActionResult Index()
+        public ActionResult UniversityRequirements()
         {
-
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult College()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Course()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
-        public ActionResult Search()
+        public ActionResult File()
         {
-
             return View();
         }
 
 
-        
     }
 }
