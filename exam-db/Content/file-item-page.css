@@ -11,16 +11,22 @@
         padding: 20px 30px;
         position:relative
     }
-        .file_page .file_box .file_main_info .file_title {
-            margin-bottom: 15px;
-            max-width: 600px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        .file_page .file_box .file_main_info .file_title_holder {
+            display: flex;
         }
+            .file_page .file_box .file_main_info .file_title_holder .file_title {
+                margin-bottom: 15px;
+                margin-right: 10px;
+                max-width: 600px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+            }
         }
         .file_page .file_box .file_college_info {
-            font-size: 14px
+            font-size: 14px;
+            
         }
         .file_page .file_box .file_main_info .download_info {
             position: absolute;
@@ -73,29 +79,68 @@
             margin-top: 20px;
             line-height: 1.8;
             color: #767676;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
         }
 
-    .file_page .file_box .user_reaction a {
-        display: inline-block;
-        text-align: center;
-        background: #f8f8f8;
-        border: 1px solid #cbcbcb;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        padding: 8px;
-        margin-right: 10px
+.file_page .file_box .file_main_info .item_upload_date {
+    font-size: 12px;
+    color: #878787;
+    margin-bottom: 30px
+    
+}
+
+    .file_page .file_box .file_main_info .item_upload_date i.fa {
+        background: #e1eaf9;
+        padding: 3px 5px;
+        font-size: 12px;
+        border-radius: 8px;
+        margin-right: 5px;
+        color: var(--main-color);
     }
 
 
-.file_statistics {
-    margin-left: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
+.file_page .file_box a.favorite {
+    display: inline-block;
+    text-align: center;
+    background: #f8f8f8;
+    border: 1px solid #cbcbcb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    margin-right: 10px;
+    color: #cc4b4c;
 }
+
+.file_page .file_box .report_abuse {
+    position: absolute;
+    bottom: -40px;
+    right: 10px;
+}
+
+.file_page .file_box .report_abuse_modal .modal-footer {
+    justify-content: center
+}
+.file_page .file_box .report_abuse_modal .modal-title {
+    color: #007bff;
+}
+    .file_page .file_box .report_abuse_modal .modal-footer .btn {
+        border-radius: 30px;
+        width: 130px;
+    }
+    .file_page .file_box .report_abuse_modal .modal-footer,
+    .file_page .file_box .report_abuse_modal .modal-header {
+        border: none
+    }
+
+
+    .file_statistics {
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+    }
 
     .file_statistics .statistic {
         color: #727272;

@@ -5,9 +5,11 @@
     <div class="file_page">
         <div class="file_box">
             <div class="file_main_info">
-                <h4 class="file_title">Database midterm Exam </h4>
-
-                <div class="download_info">
+                <div class="file_title_holder">
+                    <h4 class="file_title">Database midterm Exam</h4>
+                    <div class="h4"><span class="badge badge-info">2019</span></div>
+                </div>
+                 <div class="download_info">
                     <span class="file_size">5 MB</span>
                     <div class="type_img_holder">
                         <img src="~/Content/images/files_types/pdf.png" />
@@ -20,21 +22,17 @@
                     <span><i class="fa fa-bank"></i> Information Technology</span>
                 </div>
 
+
                 <div class="file_desc">
                     <p>
                         Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology
                     </p>
                 </div>
+                <p class="item_upload_date"><i class="fa fa-clock-o"></i>upload: 02:34pm  -  May 14, 2019</p>
 
                 <div class="flex-row d-flex align-items-center ">
-                    <div class="user_reaction">
-                        <form action="" method="POST">
-                            <input type="radio" name="vote" value="like" hidden />
-                            <input type="radio" name="vote" value="dislike" hidden />
-                        </form>
-                        <a id="like" href="#" title="like"> <i class="fa fa-heart-o"></i> </a>
-                        <a id="dislike" href="#" title="dislike"> <i class="fa fa-thumbs-o-down"></i> </a>
-                    </div>
+
+                    <a class="favorite" id="favorite_btn" href="#" title="Favorite"> <i class="fa fa-heart-o"></i> </a>
 
                     <div class="file_statistics">
                         <div class="statistic">
@@ -49,8 +47,74 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Report Abuse -->
+            <a class="report_abuse" data-toggle="modal" data-target="#reportAbuseModal" href="#" title="Report Abuse"><i class="fa fa-thumbs-o-down"></i> Report</a>
+            <div class="report_abuse_modal modal fade" id="reportAbuseModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id=""><i class="fa fa-thumbs-o-down"></i> Report this file</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>all reports are strictly confidential</strong> This appears to be:</p>
+
+
+
+
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report1" value="option1">
+                                <label class="custom-control-label" for="report1">
+                                    The download link does not work
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report2" value="option2">
+                                <label class="custom-control-label" for="report2">
+                                    Spam or Scam
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report3" value="option3">
+                                <label class="custom-control-label" for="report3">
+                                    Content is morally offensive
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report4" value="option4">
+                                <label class="custom-control-label" for="report4">
+                                    Empty Content
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report5" value="option5">
+                                <label class="custom-control-label" for="report5">
+                                    Wrong classification
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report6" value="option6">
+                                <label class="custom-control-label" for="report6">
+                                    Report Abuse
+                                </label>
+                            </div>
+
+
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
+        
 
         <h4 class="mb-4">Related Files</h4>
         <ul class="list-unstyled recommended_list">
@@ -191,46 +255,12 @@
     </div>
 </div>
 
-
-
 @section scripts {
     <script>
-
-        function selectReaction() {
-             if ($('.user_reaction a#like').hasClass('selected')) {
-                $('.user_reaction a#like i').removeClass("fa-heart-o");
-                $('.user_reaction a#like i').addClass("fa-heart");
-            } else {
-                $('.user_reaction a#like i').addClass("fa-heart-o");
-                $('.user_reaction a#like i').removeClass("fa-heart");
-            }
-
-             if ($('.user_reaction a#dislike').hasClass('selected')) {
-                $('.user_reaction a#dislike i').removeClass("fa-thumbs-o-down");
-                $('.user_reaction a#dislike i').addClass("fa-thumbs-down");
-            } else {
-                $('.user_reaction a#dislike i').addClass("fa-thumbs-o-down");
-                $('.user_reaction a#dislike i').removeClass("fa-thumbs-down");
-            }
-        }
-
-        $('.user_reaction a#like').on('click', function () {
-            var $radios = $('input:radio[name=vote]');
-            $radios.filter('[value=like]').get(0).checked = true;
-
-            $(this).addClass('selected');
-            $('.user_reaction a#dislike').removeClass('selected');
-            selectReaction();
-
+        // toggle favorite icon 
+        $('#favorite_btn').on('click', function () {
+            $('#favorite_btn i.fa').toggleClass('fa-heart-o fa-heart');
         });
-
-        $('.user_reaction a#dislike').on('click', function () {
-            var $radios = $('input:radio[name=vote]');
-            $radios.filter('[value=dislike]').get(0).checked = true;
-
-            $(this).addClass('selected');
-            $('.user_reaction a#like').removeClass('selected');
-            selectReaction();
-        });
+      
     </script>
 }

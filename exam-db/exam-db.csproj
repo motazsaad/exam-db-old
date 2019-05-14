@@ -256,10 +256,13 @@
     <Content Include="Content\images\files_types\xls.png" />
     <Content Include="Content\images\logo-small.png" />
     <Content Include="Content\images\files_types\pdf.png" />
+    <Content Include="Content\images\profile-background.png" />
+    <Content Include="Content\images\team-1.jpg" />
     <Content Include="Content\images\writing-1149962_1280.jpg" />
     <Content Include="Content\jquery.dm-uploader.min.css" />
     <Content Include="Content\login_signup.css" />
     <Content Include="Content\pretty-checkbox.min.css" />
+    <Content Include="Content\profile_page.css" />
     <Content Include="Content\search.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -347,6 +350,8 @@
     <Content Include="Views\Web\Course.cshtml" />
     <Content Include="Views\Web\File.cshtml" />
     <Content Include="Views\Web\UniversityRequirements.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Home\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

@@ -34,7 +34,10 @@ namespace exam_db.Controllers
             return View();
         }
 
-
+        public ActionResult Profile()
+        {
+            return View();
+        }
         
     }
 }
