@@ -38,6 +38,7 @@ namespace exam_db.Models
         public int view_numbre { get; set; }
         public int year { get; set; }
         public int semester { get; set; }
-        
+        public String Category { get; set; }//file category (quiz , exam,others,Summaries);
+
     }
 }

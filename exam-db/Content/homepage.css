@@ -61,6 +61,7 @@
     }
     .side_nav ul.side_nav_list li.colleges ul.colleges_list {
         display: none;
+        width: 270px;
         position: absolute;
         top: 0;
         right: -260px;

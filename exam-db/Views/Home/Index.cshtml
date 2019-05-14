@@ -24,9 +24,14 @@
                     <ul class="list-unstyled side_nav_list">
                         <a href="~/Web/UniversityRequirements"><li>University requirement</li></a>
                         <li class="colleges">College requirement
-                            <ul class="list-unstyled colleges_list" >
+                            <ul class="list-unstyled colleges_list">
                                 @* get them from database *@
-                                <a href="~/Web/College"><li>Faculty of Medicine</li></a>
+                                @foreach (var item in ViewBag.college)
+                                {
+                                    <a href="@Url.Action("College","Web",new {CollegeId =item.Id } )"><li>Faculty of @item.name</li></a>
+
+                                }
+                                @*<a href="~/Web/College"><li>Faculty of Medicine</li></a>
                                 <a href="~/Web/College"><li>Faculty of Engineering</li></a>
                                 <a href="~/Web/College"><li>Faculty of Information Technology</li></a>
                                 <a href="~/Web/College"><li>Faculty of Nursing</li></a>
@@ -36,7 +41,7 @@
                                 <a href="~/Web/College"><li>Faculty of Arts</li></a>
                                 <a href="~/Web/College"><li>Faculty of Sharia & Law</li></a>
                                 <a href="~/Web/College"><li>Faculty of Osoul Eddin</li></a>
-                                <a href="~/Web/College"><li>Faculty of Commerce</li></a>
+                                <a href="~/Web/College"><li>Faculty of Commerce</li></a>*@
                             </ul>
                         </li>
                      </ul>

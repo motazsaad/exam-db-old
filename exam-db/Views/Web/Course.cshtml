@@ -21,8 +21,8 @@
 </style>
 <div class="container">
     <div class="courses_page">
-        <h4 class="courses_page_title">Course Title</h4>
-
+        <h4 class="courses_page_title">@ViewBag.courseName</h4>
+        
         @* Main Taps *@
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -51,90 +51,53 @@
             <!-- exams content  -->
             <div class="tab-pane fade show active" id="exams">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                    @foreach (var file in ViewBag.exams)
+                    {
+                        <div class="col-md-12">
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="~/Web/File">
+                                                        <h6 class="item_title">@file.title</h6>
+                                                    </a>
+                                                    <span class="item_college">@ViewBag.CollegeName - <span>@ViewBag.departmentName</span></span>
+                                                    <a class="black_link no_decoration" style="display:block" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i>@file.like_number
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> @file.view_numbre
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> @file.Download_number
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <span class="item_date">2017</span>
+                                    <span class="item_date">@file.year</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                            </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    }
 
-                                <span class="item_date">2017</span>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
 
                 <nav class="pagination_nav">
@@ -152,90 +115,51 @@
             <!-- quizs content -->
             <div class="tab-pane fade" id="quizs">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                    @foreach (var file in ViewBag.Quizez)
+                    {
+                        <div class="col-md-12">
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="~/Web/File">
+                                                        <h6 class="item_title">@file.title</h6>
+                                                    </a>
+                                                    <span class="item_college">@ViewBag.CollegeName - <span>@ViewBag.departmentName</span></span>
+                                                    <a class="black_link no_decoration" style="display:block" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i>@file.like_number
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> @file.view_numbre
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> @file.Download_number
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <span class="item_date">2017</span>
+                                    <span class="item_date">@file.year</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                            </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <span class="item_date">2017</span>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
 
                 <nav class="pagination_nav">
@@ -253,132 +177,51 @@
             <!-- summaries content  -->
             <div class="tab-pane fade" id="summaries">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                    @foreach (var file in ViewBag.Summarieses)
+                    {
+                        <div class="col-md-12">
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="~/Web/File">
+                                                        <h6 class="item_title">@file.title</h6>
+                                                    </a>
+                                                    <span class="item_college">@ViewBag.CollegeName - <span>@ViewBag.departmentName</span></span>
+                                                    <a class="black_link no_decoration" style="display:block" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i>@file.like_number
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> @file.view_numbre
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> @file.Download_number
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <span class="item_date">2017</span>
+                                    <span class="item_date">@file.year</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                            </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <span class="item_date">2017</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                            </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <span class="item_date">2017</span>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
 
                 <nav class="pagination_nav">
@@ -395,132 +238,51 @@
             <!-- others content  -->
             <div class="tab-pane fade" id="others">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                    @foreach (var file in ViewBag.others)
+                    {
+                        <div class="col-md-12">
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="~/Web/File">
+                                                        <h6 class="item_title">@file.title</h6>
+                                                    </a>
+                                                    <span class="item_college">@ViewBag.CollegeName - <span>@ViewBag.departmentName</span></span>
+                                                    <a class="black_link no_decoration" style="display:block" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i>@file.like_number
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> @file.view_numbre
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> @file.Download_number
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <span class="item_date">2017</span>
+                                    <span class="item_date">@file.year</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                            </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <span class="item_date">2017</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="item">
-                            <div class="item_body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="item_img_and_info_holder">
-                                            <div class="item_type_img_holder">
-                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                            </div>
-                                            <div class="item_info">
-                                                <a class="black_link no_decoration" href="~/Web/File">
-                                                    <h6 class="item_title">database midterm exam</h6>
-                                                </a>
-                                                <span class="item_college">Information technology - <span>Computer science</span></span>
-                                                <a class="black_link no_decoration" style="display:block" href="#">
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="item_statistics">
-                                            <div class="statistic">
-                                                <i class="fa fa-heart"></i> 184
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-eye"></i> 301
-                                            </div>
-                                            <div class="statistic">
-                                                <i class="fa fa-download"></i> 190
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <span class="item_date">2017</span>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
 
                 <nav class="pagination_nav">

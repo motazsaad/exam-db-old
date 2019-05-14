@@ -6,125 +6,51 @@
 <link href="~/Content/courses.css" rel="stylesheet" />
 
 <div class="container">
-    <div class="courses_page">
-        <h4 class="courses_page_title">Faculty of Information Technology</h4>
+    <div class="courses_page" id="tabs">
+
+        <h4 class="courses_page_title">Faculty of @ViewBag.CollegeName</h4>
 
         @* Main Taps *@
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id=" -tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="true">Computer Science</a>
+                <a class="nav-link active" id=" -tab" data-toggle="tab" href="#_@ViewBag.First.Id" role="tab" aria-controls="_@ViewBag.First.Id" aria-selected="true">@ViewBag.First.name</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id=" -tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Information Technology Systems</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id=" -tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="false">Software Development</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id=" -tab" data-toggle="tab" href="#four" role="tab" aria-controls="four" aria-selected="false">Web Development and Multimedia</a>
-            </li>
+            @foreach (var dept in ViewBag.Departments)
+            {
+
+                <li class="nav-item">
+                    <a class="nav-link" id=" -tab" data-toggle="tab" href="#_@dept.Id" role="tab" aria-controls="_@dept.Id" aria-selected="false">@dept.name</a>
+                </li>
+                
+            }
+
         </ul>
+
         <!-- Taps Content -->
         <div class="tab-content" id="">
+
             <!-- University requirement content  -->
-            <div class="tab-pane fade show active" id="one">
+            <div class="tab-pane fade show active" id="_@ViewBag.First.Id">
                 <div class="row">
-                    <div class="col-md-6">
+                    @foreach (var course in ViewBag.listOfCourses)
+                    {
+                        <div class="col-md-6">
 
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
+                            <a class="black_link no_decoration" href="@Url.Action("Course","Web",new {courseId =course.Id , CollegeName = ViewBag.CollegeName } )">
+                                <div class="course_card">
+                                    <div class="course_title">
 
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
+                                        <h6 class="course_name">@course.name</h6>
 
-                                    <span class="course_code">Code | SDEV 4304</span>
+                                        <span class="course_code">Code | @course.code</span>
+                                    </div>
+
+                                    <span class="course_items_number"><i class="fa fa-file-o"></i> @course.listOfFile.Count items</span>
                                 </div>
+                            </a>
 
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
+                        </div>
+                    }
 
                 </div>
 
@@ -140,186 +66,52 @@
 
             </div>
 
-            <!-- College requirement content -->
-            <div class="tab-pane fade" id="two">
-                <div class="row">
-                    <div class="col-md-6">
+            @foreach (var department in ViewBag.Departments)
+            {
+                <div class="tab-pane fade" id="_@department.Id">
 
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
+                    <div class="row">
+                        @foreach (var course in department.listOfCourse)
+                        {
 
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
+                            <div class="col-md-6">
+                                <a class="black_link no_decoration" href=" @Url.Action("Course", "Web", new { courseId = course.Id, CollegeName = ViewBag.CollegeName }) ">
+                                    <div class="course_card">
+                                        <div class="course_title">
 
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
+                                            <h6 class="course_name">@course.name</h6>
 
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                                            <span class="course_code">Code | @course.code</span>
+                                        </div>
+
+                                        <span class="course_items_number"><i class="fa fa-file-o"></i> @course.listOfFile.Count items</span>
+                                    </div>  
+                                </a>
                             </div>
-                        </a>
-
+                            }
+                   
                     </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
+                        <nav class="pagination_nav">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
                 </div>
+        
+            }
 
-                <nav class="pagination_nav">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
 
-            </div>
 
-            <!-- Department requirement content  -->
-            <div class="tab-pane fade" id="three">
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-
-                <nav class="pagination_nav">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-
-            <div class="tab-pane fade" id="four">
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <a class="black_link no_decoration" href="~/Web/Course">
-                            <div class="course_card">
-                                <div class="course_title">
-
-                                    <h6 class="course_name">Advanced Software Engineering</h6>
-
-                                    <span class="course_code">Code | SDEV 4304</span>
-                                </div>
-
-                                <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-
-                <nav class="pagination_nav">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-
-            </div>
         </div>
+
+
     </div>
 </div>
+
 
 @section scripts {
 
@@ -334,6 +126,34 @@
         $('.nav-tabs a').on('shown.bs.tab', function (e) {
             window.location.hash = e.target.hash;
         })
+
+        
+
+    function openTab() {
+        var urlm = document.location.toString();
+        console.log(url.split('#')[1]);
+        //alert(url.split('#')[1]);
+        var data = new Object();
+        data.depid = urlm.split('#')[1];
+        $.ajax({
+            url:'@Url.Action("Getdept","Web")',
+            type: 'GET',
+            dataType: "json", 
+            contentType: "application/json; charset=utf-8",
+            data: urlm.split('#')[1],
+            success: function (result) {
+                 alert(result);
+                
+            },
+             failure: function(response) {  
+                    alert(response.responseText);  
+                },  
+                error: function(response) {  
+                    alert(response.responseText);  
+                }  
+        });
+        }
+        
     </script>
 
 }
