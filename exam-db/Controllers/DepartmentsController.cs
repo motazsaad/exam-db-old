@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -38,7 +40,38 @@ namespace exam_db.Controllers
         // GET: Departments/Create
         public ActionResult Create()
         {
+            //ViewBag.Colleges = new SelectList(db.Colleges, "Id" ,"name");
+            ViewBag.Colleges = db.Colleges.ToList();
             return View();
+        }
+
+        private static List<College> Populatecolleges()
+        {
+            List<College> colleges = new List<College>();
+            string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                string query = " SELECT name, Id FROM Colleges";
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            colleges.Add(new College
+                            {
+                                name = sdr["name"].ToString(),
+                                Id = Convert.ToInt32(sdr["Id"])
+                            });
+                        }
+                    }
+                    con.Close();
+                }
+            }
+
+            return colleges;
         }
 
         // POST: Departments/Create
@@ -46,7 +79,7 @@ namespace exam_db.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,name,collgeId")] Department department)
+        public ActionResult Create( Department department)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +87,7 @@ namespace exam_db.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name",department.college_Id);
             return View(department);
         }
 
@@ -70,6 +103,7 @@ namespace exam_db.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name", department.college_Id);
             return View(department);
         }
 
@@ -78,7 +112,7 @@ namespace exam_db.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,name,collgeId")] Department department)
+        public ActionResult Edit( Department department)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +120,7 @@ namespace exam_db.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name", department.college_Id);
             return View(department);
         }
 
