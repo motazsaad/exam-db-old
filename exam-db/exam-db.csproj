@@ -208,37 +208,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903141515026_InitialCreate.cs" />
-    <Compile Include="Migrations\201903141515026_InitialCreate.Designer.cs">
-      <DependentUpon>201903141515026_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903211123372_editfile.cs" />
-    <Compile Include="Migrations\201903211123372_editfile.Designer.cs">
-      <DependentUpon>201903211123372_editfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903211128258_editAll.cs" />
-    <Compile Include="Migrations\201903211128258_editAll.Designer.cs">
-      <DependentUpon>201903211128258_editAll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905102352075_edit-dept.cs" />
-    <Compile Include="Migrations\201905102352075_edit-dept.Designer.cs">
-      <DependentUpon>201905102352075_edit-dept.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905110159024_add-dept.cs" />
-    <Compile Include="Migrations\201905110159024_add-dept.Designer.cs">
-      <DependentUpon>201905110159024_add-dept.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905110247108_update.cs" />
-    <Compile Include="Migrations\201905110247108_update.Designer.cs">
-      <DependentUpon>201905110247108_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905120902582_updatecourse.cs" />
-    <Compile Include="Migrations\201905120902582_updatecourse.Designer.cs">
-      <DependentUpon>201905120902582_updatecourse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905140828317_addfileCategory.cs" />
-    <Compile Include="Migrations\201905140828317_addfileCategory.Designer.cs">
-      <DependentUpon>201905140828317_addfileCategory.cs</DependentUpon>
+    <Compile Include="Migrations\201905150910080_addAll.cs" />
+    <Compile Include="Migrations\201905150910080_addAll.Designer.cs">
+      <DependentUpon>201905150910080_addAll.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -329,7 +301,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905150910080_addAll.resx">
+      <DependentUpon>201905150910080_addAll.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
@@ -378,32 +354,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903141515026_InitialCreate.resx">
-      <DependentUpon>201903141515026_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903211123372_editfile.resx">
-      <DependentUpon>201903211123372_editfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903211128258_editAll.resx">
-      <DependentUpon>201903211128258_editAll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905102352075_edit-dept.resx">
-      <DependentUpon>201905102352075_edit-dept.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905110159024_add-dept.resx">
-      <DependentUpon>201905110159024_add-dept.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905110247108_update.resx">
-      <DependentUpon>201905110247108_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905120902582_updatecourse.resx">
-      <DependentUpon>201905120902582_updatecourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905140828317_addfileCategory.resx">
-      <DependentUpon>201905140828317_addfileCategory.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
