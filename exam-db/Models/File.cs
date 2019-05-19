@@ -39,6 +39,8 @@ namespace exam_db.Models
         public int year { get; set; }
         public int semester { get; set; }
         public String Category { get; set; }//file category (quiz , exam,others,Summaries);
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }
 
     }
 }

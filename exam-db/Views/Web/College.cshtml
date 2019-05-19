@@ -19,7 +19,7 @@
             {
 
                 <li class="nav-item">
-                    <a class="nav-link" id=" -tab" data-toggle="tab" href="#_@dept.Id" role="tab" aria-controls="_@dept.Id" aria-selected="false">@dept.name</a>
+                    <a class="nav-link" id="test" data-toggle="tab" href="#_@dept.Id" role="tab" aria-controls="_@dept.Id" aria-selected="false">@dept.name</a>
                 </li>
                 
             }
@@ -79,29 +79,37 @@
                                     <div class="course_card">
                                         <div class="course_title">
 
-                                            <h6 class="course_name">@course.name</h6>
+                                            <h6 id="tes" class="course_name">@course.name</h6>
 
                                             <span class="course_code">Code | @course.code</span>
                                         </div>
 
                                         <span class="course_items_number"><i class="fa fa-file-o"></i> @course.listOfFile.Count items</span>
-                                    </div>  
+                                    </div>
                                 </a>
                             </div>
-                            }
-                   
+                        }
+
                     </div>
-                        <nav class="pagination_nav">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
+                    <nav class="pagination_nav">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
                 </div>
-        
+
+            }
+
+            @if (ViewBag.listOfCours != null)
+            {
+                foreach (var item in ViewBag.listOfCours)
+                {
+                    <h6>item.name</h6>
+                }
             }
 
 
@@ -128,32 +136,43 @@
         })
 
         
+        $("#test").on("click", function () {
 
-    function openTab() {
-        var urlm = document.location.toString();
-        console.log(url.split('#')[1]);
-        //alert(url.split('#')[1]);
-        var data = new Object();
-        data.depid = urlm.split('#')[1];
-        $.ajax({
-            url:'@Url.Action("Getdept","Web")',
-            type: 'GET',
-            dataType: "json", 
-            contentType: "application/json; charset=utf-8",
-            data: urlm.split('#')[1],
-            success: function (result) {
-                 alert(result);
-                
-            },
-             failure: function(response) {  
-                    alert(response.responseText);  
-                },  
-                error: function(response) {  
-                    alert(response.responseText);  
-                }  
-        });
-        }
+            var urlm = $(this).attr("href");
+      
+            var data = new Object();
+            var id = parseInt(urlm.split('#_')[1]);
+
+            data.depid = parseInt(urlm.split('#_')[1]);
+            console.log(data.depid);
+            $.ajax({
+                url: '@Url.Action("Getdept","Web")',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    id: id
+                },
+                success: function (result) {
+                    //$("#tes").append(document.createTextNode("Hello"));
+                    console.log( result);
+                    //alert(result);
+                    //for (var i = 0; i < result.courses.length i++) {
+                    //     console.log(result.courses[i].name);
+                    //}
+                    //console.log(result);
+                   
+                },
+                 failure: function(response) {  
+                     alert(response.responseText);
+                     console.log(response.responseText);
+                    },  
+                    error: function(response) {  
+                        alert(response.responseText);  
+                        console.log(response.responseText);
+                    }  
+            });
         
+         });
     </script>
 
 }

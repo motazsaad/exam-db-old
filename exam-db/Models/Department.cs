@@ -11,7 +11,7 @@ namespace exam_db.Models
         public int Id { get; set; }
         public String name { get; set; }
         public virtual ICollection<Course> listOfCourse { get; set; }
-        public int college_Id { get; set; }
+        public int collegeId { get; set; }
         public virtual College college { get; set; }
        
 

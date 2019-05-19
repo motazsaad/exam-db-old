@@ -1,5 +1,6 @@
 ﻿using exam_db.Models;
 using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace exam_db.Controllers
 
         public ActionResult College(int CollegeId)
         {
+
             College college = db.Colleges.Find(CollegeId);
             ViewBag.CollegeName = college.name;
             ViewBag.CollegeId = college.Id;
@@ -39,20 +41,33 @@ namespace exam_db.Controllers
             ViewBag.First = college.listOfDepartment.First();
             return View();
         }
-       
-        public ActionResult Getdept( String depid)
+  
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Getdept(int id)
         {
+            List<Course> courses = new List<Course>();
+            Department dep = db.Departments.Single(a => a.Id.Equals( id));
+            //IQueryable<ICollection<Course>> listOfCourses = from q in db.Departments where q.Id == data.depid select q.listOfCourse;
+            foreach (Course course in dep.listOfCourse)
+            {
+                courses.Add(course);
+            }
+            var list = JsonConvert.SerializeObject(courses,
+                                    Formatting.None,
+                                    new JsonSerializerSettings()
+                                    {
+                                        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                                    });
+                     //string responseText = JSON.Validate(courses);
+            //return Json( list , "application/json") ;
 
-            //College college = db.Colleges.Find(CollegeId);
-            Department dep = db.Departments.Find(depid);
-            ViewBag.listOfCours = dep.listOfCourse;
-            ICollection<Course> courses = new List<Course>();
-            
-            //string responseText = JSON.Validate(courses);
-            return Json(dep.listOfCourse,JsonRequestBehavior.AllowGet) ;
+            return Json(new {
+                data = list
+            }, JsonRequestBehavior.AllowGet);
 
         }
-
+      
         public ActionResult Course(int courseId , String CollegeName)
         {
             Course course = db.Courses.Find(courseId);
@@ -97,7 +112,5 @@ namespace exam_db.Controllers
         {
             return View();
         }
-
-
     }
 }
