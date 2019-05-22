@@ -41,6 +41,7 @@ namespace exam_db.Models
         public String Category { get; set; }//file category (quiz , exam,others,Summaries);
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
+		//we still need to add application user to point to the user , also the department_id 
 
     }
 }
