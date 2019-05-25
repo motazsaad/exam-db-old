@@ -44,6 +44,20 @@ namespace exam_db.Controllers
             ViewBag.files = db.Files
                     .Where(f => f.title.Contains(query))
                     .ToList();
+            Random rand = new Random();
+            string[] Questions = { query };
+            if (System.Web.HttpContext.Current.Session["Questions"] == null)
+            {
+                System.Web.HttpContext.Current.Session["Questions"] = Questions; // here question is string array, 
+                                                                                 //assigning value of array to session if session is null
+            }
+            else
+            {
+                string[] newQuestions = Questions;
+                string[] existingQuestions = (string[])System.Web.HttpContext.Current.Session["Questions"];
+                System.Web.HttpContext.Current.Session["Questions"] = newQuestions.Union(existingQuestions).ToArray();
+            }
+
             return View();
         }
 

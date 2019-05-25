@@ -14,11 +14,21 @@
                 <div class="holder">
                     <h6 class="side_nav_headers"><i class="fa fa-clock-o"></i> Recent Searches</h6>
                     <ul class="list-unstyled side_nav_list">
-                        <a href="#"><li>database exam <a href="#"> <i class="fa fa-close"></i></a> </li></a>
-                        <a href="#"><li>data strucher mid exam <a href="#"> <i class="fa fa-close"></i></a> </li></a>
-                        <a href="#"><li>web design final <a href="#"> <i class="fa fa-close"></i></a></li> </a>
-                        <a href="#"><li>bla bla bla <a href="#"> <i class="fa fa-close"></i></a></li></a>
-                        <a href="#"><li>bla bla bla <a href="#"> <i class="fa fa-close"></i></a></li></a>
+					 @{
+                            string[] re = { "fresh" };
+                            if (System.Web.HttpContext.Current.Session["Questions"] != null)
+                            {
+                                re = (string[])System.Web.HttpContext.Current.Session["Questions"];
+
+                            }
+
+                        }
+						
+                        @for (int i = 0; i < re.Length; i++)
+                        {
+                            <a href="#"><li>@re.GetValue(i) <a href="#"> <i class="fa fa-close"></i></a></li></a>
+                            
+                        }
                     </ul>
                     <h6 class="side_nav_headers"><i class="fa fa-list-alt"></i> Courses Categories</h6>
                     <ul class="list-unstyled side_nav_list">
