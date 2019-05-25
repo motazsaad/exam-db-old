@@ -36,7 +36,7 @@ namespace exam_db.Controllers
             db.SaveChanges();
             File file = db.Files.Find(id);
             ViewBag.files = db.Files.
-              Include(f => f.Course).Where(f => f.Course_Id == file.Course_Id).OrderByDescending(x => x.Id).Take(5).ToList();
+              Include(f => f.Course).Where(f => f.CourseId == file.CourseId).OrderByDescending(x => x.Id).Take(5).ToList();
             if (file == null)
             {
                 return HttpNotFound();
