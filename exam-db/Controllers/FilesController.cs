@@ -21,18 +21,27 @@ namespace exam_db.Controllers
         }
 
         // GET: Files/Details/5
-        public ActionResult Details(/*int? id*/)
+        public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //File file = db.Files.Find(id);
-            //if (file == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            return View(/*file*/);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+            
+            File fileedit = db.Files.Find(id);
+            fileedit.view_numbre = fileedit.view_numbre + 1;
+
+            db.Entry(fileedit).State = EntityState.Modified;
+            db.SaveChanges();
+            File file = db.Files.Find(id);
+            ViewBag.files = db.Files.
+              Include(f => f.Course).Where(f => f.CourseId == file.CourseId).OrderByDescending(x => x.Id).Take(5).ToList();
+            if (file == null)
+            {
+                return HttpNotFound();
+            }
+            return View(file);
         }
 
         // GET: Files/Create
@@ -46,16 +55,16 @@ namespace exam_db.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,title,path,type,size,like_number,dislike_number,Download_number,view_numbre")] File file)
+        public ActionResult Create([Bind(Include = "title,path,type,size,like_number,dislike_number,Download_number,view_numbre,Category,Course_Id,ApplicationUser_Id")] File file)
         {
             if (ModelState.IsValid)
             {
                 db.Files.Add(file);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
-
-            return View(file);
+            ModelState.AddModelError("", "error");
+            return View(db.Files);
         }
 
         // GET: Files/Edit/5
