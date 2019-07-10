@@ -61,7 +61,7 @@ namespace exam_db.Controllers
             return View();
         }
 
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             return View();
         }

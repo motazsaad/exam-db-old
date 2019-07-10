@@ -149,7 +149,6 @@ namespace exam_db.Controllers
         {
             Course course = db.Courses.Find(courseId);
             List<Object> MyFiles = new List<Object>();
-            String myJson = "";
 
             foreach (File file in course.listOfFile)
             {
