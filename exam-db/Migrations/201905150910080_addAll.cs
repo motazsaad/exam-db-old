@@ -25,12 +25,12 @@ namespace exam_db.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         name = c.String(),
-                        college_Id = c.Int(nullable: false),
-                        college_Id1 = c.Int(),
+                        collegeId = c.Int(nullable: false),
+                        
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Colleges", t => t.college_Id1)
-                .Index(t => t.college_Id1);
+                .ForeignKey("dbo.Colleges", t => t.collegeId)
+                .Index(t => t.collegeId);
             
             CreateTable(
                 "dbo.Courses",

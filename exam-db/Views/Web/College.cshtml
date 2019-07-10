@@ -4,7 +4,7 @@
 }
 
 <link href="~/Content/courses.css" rel="stylesheet" />
-
+<script src="~/Scripts/json2.js"></script>
 <div class="container">
     <div class="courses_page" id="tabs">
 
@@ -19,7 +19,7 @@
             {
 
                 <li class="nav-item">
-                    <a class="nav-link" id=" -tab" data-toggle="tab" href="#_@dept.Id" role="tab" aria-controls="_@dept.Id" aria-selected="false">@dept.name</a>
+                    <a class="nav-link test"  data-toggle="tab" href="#_@dept.Id" role="tab" aria-controls="_@dept.Id" aria-selected="false">@dept.name</a>
                 </li>
                 
             }
@@ -68,40 +68,30 @@
 
             @foreach (var department in ViewBag.Departments)
             {
-                <div class="tab-pane fade" id="_@department.Id">
+                <div class="tab-pane fade custome " id="_@department.Id">
 
-                    <div class="row">
-                        @foreach (var course in department.listOfCourse)
-                        {
-
-                            <div class="col-md-6">
-                                <a class="black_link no_decoration" href=" @Url.Action("Course", "Web", new { courseId = course.Id, CollegeName = ViewBag.CollegeName }) ">
-                                    <div class="course_card">
-                                        <div class="course_title">
-
-                                            <h6 class="course_name">@course.name</h6>
-
-                                            <span class="course_code">Code | @course.code</span>
-                                        </div>
-
-                                        <span class="course_items_number"><i class="fa fa-file-o"></i> @course.listOfFile.Count items</span>
-                                    </div>  
-                                </a>
-                            </div>
-                            }
-                   
-                    </div>
-                        <nav class="pagination_nav">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
+                    @*<div id="#_@department.Id" class="row">
+                  
+                    </div>*@
+                    @*<nav class="pagination_nav">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>*@
                 </div>
-        
+
+            }
+
+            @if (ViewBag.listOfCours != null)
+            {
+                foreach (var item in ViewBag.listOfCours)
+                {
+                    <h6>item.name</h6>
+                }
             }
 
 
@@ -127,33 +117,130 @@
             window.location.hash = e.target.hash;
         })
 
-        
+        var count = 0;
+        $(".test").on("click", function () {
+                count++;
+                console.log(count);
+                var urlm = $(this).attr("href");
+            var data = new Object();
+            
+                var id = parseInt(urlm.split('#_')[1]);
+                data.depid = parseInt(urlm.split('#_')[1]);
+                console.log(data.depid);
+                $.ajax({
+                    url: '@Url.Action("Getdept","Web")',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+                        var Id = urlm.split('#')[1];
+                        var araay = jQuery.parseJSON(JSON.stringify(result));
+                        var array = JSON.parse(araay.data);
+                        console.log(array);
+                        var parent = document.getElementById(Id);
+                        $('.custome').empty();
+                        console.log(parent);
+                        var row = document.createElement("div");
+                        row.setAttribute('class', 'row');
+                        parent.appendChild(row);
+                        for (var i = 0; i < array.length; i++) {
+                            var contin = document.createElement("div");
+                            contin.setAttribute('class', 'col-md-6');
+                            row.appendChild(contin);
+                            var h = document.createElement("a");
+                            h.setAttribute('class', "black_link no_decoration");
+                            var courseId = array[i].course.Id;
+                            var College = '@ViewBag.CollegeName';
+                            var url = '@Url.Action("Course","Web",new {courseId = "CId", CollegeName = "col" } )'.replace("CId", courseId);
+                            url = url.replace("col", College);
+                            console.log(College);
+                            h.setAttribute('href', url);
+                            console.log(h);
+                            contin.appendChild(h);
+                            var content = document.createElement("div");
+                            content.setAttribute('class', 'course_card');
+                            h.appendChild(content);
+                            var title = document.createElement("div");
+                            title.setAttribute('class', 'course_title');
+                            content.appendChild(title);
+                            var name = document.createElement("h6");
+                            name.setAttribute('class', 'course_name');
+                            name.innerText = array[i].course.name;
+                            title.appendChild(name);
+                            var code = document.createElement("span");
+                            code.setAttribute('class', 'course_code');
+                            code.innerText = "Code | " + array[i].course.code;
+                            title.appendChild(code);
+                            var number = document.createElement("span");
+                            number.setAttribute('class', 'course_items_number');
+                            var ii = document.createElement("i");
+                            ii.setAttribute('class', 'fa fa-file-o');
+                            number.innerText = " 0 items";
+                            number.appendChild(ii);
+                            content.appendChild(number);    
+                            //h.setAttribute('href',);
+                            //$("#tes").append(document.createTextNode(array[i].course.name));
+                        }
+                        var nav = document.createElement("nav");
+                        nav.setAttribute('class', 'pagination_nav');
+                        parent.appendChild(nav);
+                        var pagination = document.createElement("ul");
+                        pagination.setAttribute('class', 'pagination');
+                        nav.appendChild(pagination);
+                        var li1 = document.createElement("li");
+                        li1.setAttribute('class', 'page-item');
+                        var aa = document.createElement("a");
+                        aa.setAttribute('class', 'page-link');
+                        aa.setAttribute('href', '#');
+                        li1.appendChild(aa);
+                        aa.innerText = "Previous";
+                        var li2 = document.createElement("li");
+                        li2.setAttribute('class', 'page-item');
+                        var aa2 = document.createElement("a");
+                        aa2.setAttribute('class', 'page-link');
+                        aa2.setAttribute('href', '#');
+                        li2.appendChild(aa2);
+                        aa2.innerText = "1";
 
-    function openTab() {
-        var urlm = document.location.toString();
-        console.log(url.split('#')[1]);
-        //alert(url.split('#')[1]);
-        var data = new Object();
-        data.depid = urlm.split('#')[1];
-        $.ajax({
-            url:'@Url.Action("Getdept","Web")',
-            type: 'GET',
-            dataType: "json", 
-            contentType: "application/json; charset=utf-8",
-            data: urlm.split('#')[1],
-            success: function (result) {
-                 alert(result);
-                
-            },
-             failure: function(response) {  
-                    alert(response.responseText);  
-                },  
-                error: function(response) {  
-                    alert(response.responseText);  
-                }  
-        });
-        }
-        
+                        var li3 = document.createElement("li");
+                        li3.setAttribute('class', 'page-item');
+                        var aa3 = document.createElement("a");
+                        aa3.setAttribute('class', 'page-link');
+                        aa3.setAttribute('href', '#');
+                        li3.appendChild(aa3);
+                        aa3.innerText = "2";
+                        var li4 = document.createElement("li");
+                        li4.setAttribute('class', 'page-item');
+                        var aa4 = document.createElement("a");
+                        aa4.setAttribute('class', 'page-link');
+                        aa4.setAttribute('href', '#');
+                        li4.appendChild(aa4);
+                        aa4.innerText = "Next";
+
+                        pagination.appendChild(li1);
+                        pagination.appendChild(li2);
+                        pagination.appendChild(li3);
+                        pagination.appendChild(li4);
+
+
+                        //console.log(result);
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                        console.log(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                        console.log(response.responseText);
+                    }
+                });
+
+            });
+
+
     </script>
 
 }

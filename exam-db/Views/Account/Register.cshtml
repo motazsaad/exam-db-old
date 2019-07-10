@@ -58,78 +58,100 @@
                 <hr class="hr_under_title" />
 
 
-            <div class="row">            
-                <div class="col-lg-10  signup_field_col_sm ">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-lg-10  signup_field_col_sm ">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                </div>
-                <div class="col-lg-5 pr-1 signup_field_col_sm">
-                    <div class="form-group">
-                        <div class="signup_field_wrap">
-                            <label for="FirstName"> First Name</label>
-                            <input class="form-control" type="text" name="FirstName" id="FirstName" />
-                            @*  @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })*@
+                    </div>
+                    <div class="col-lg-5 pr-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="FirstName"> First Name</label>
+                                <input class="form-control" type="text" name="FirstName" id="FirstName" />
+                                @*  @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })*@
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 pl-1 signup_field_col_sm">
-                    <div class="form-group">
-                        <div class="signup_field_wrap">
-                            <label for="LastName"> Last Name</label>
-                            <input class="form-control" type="text" name="LastName" id="LastName" />
-                            @* @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })*@
+                    <div class="col-lg-5 pl-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="LastName"> Last Name</label>
+                                <input class="form-control" type="text" name="LastName" id="LastName" />
+                                @* @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })*@
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-10  signup_field_col_sm ">
-                    <div class="form-group">
-                        <div class="signup_field_wrap">
-                            <label for="Email"> Email</label>
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type="email", required = "required" })
-                            @if (ViewData.ModelState["Email"] != null && ViewData.ModelState["Email"].Errors.Any())
-                            {
-                                <i class="fa fa-info-circle field_error_icon"></i>
-                            }
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    <div class="col-lg-10  signup_field_col_sm ">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="Email"> Email</label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "email", required = "required" })
+                                @if (ViewData.ModelState["Email"] != null && ViewData.ModelState["Email"].Errors.Any())
+                                {
+                                    <i class="fa fa-info-circle field_error_icon"></i>
+                                }
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 pr-1 signup_field_col_sm">
-                    <div class="form-group">
-                        <div class="signup_field_wrap">
-                            <label for="Password"> Password</label>
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
+                    <div class="col-lg-5 pr-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                
+                              <select name="collegeId" class="form-control" id="Colleges">
+                                  @foreach(var item in ViewBag.Colleges)
+                                  {
+                                      <option id="@item.Id"value="@item.Id">@item.name</option>
+                                  }
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 pl-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <select name="departmentId" class="form-control" id="departments">
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 pr-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="Password"> Password</label>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
 
 
-                            @if (ViewData.ModelState["Password"] != null && ViewData.ModelState["Password"].Errors.Any())
-                            {
-                                <i class="fa fa-info-circle field_error_icon"></i>
-                            }
-                            else
-                            {
-                                <i class="fa fa-question-circle field_hint_icon">
-                                    <span class="field_hint_text">Make sure it's more than 13 characters OR at least 6 characters including a number and a lowercase letter.</span>
-                                </i>
-                            }
+                                @if (ViewData.ModelState["Password"] != null && ViewData.ModelState["Password"].Errors.Any())
+                                {
+                                    <i class="fa fa-info-circle field_error_icon"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa fa-question-circle field_hint_icon">
+                                        <span class="field_hint_text">At least 6 characters including a number and a lowercase letters.</span>
+                                    </i>
+                                }
 
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 pl-1 signup_field_col_sm">
+                        <div class="form-group">
+                            <div class="signup_field_wrap">
+                                <label for="Password"> Confirm Password</label>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", required = "required" })
+                                @if (ViewData.ModelState["ConfirmPassword"] != null && ViewData.ModelState["ConfirmPassword"].Errors.Any())
+                                {
+                                    <i class="fa fa-info-circle field_error_icon"></i>
+                                }
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 pl-1 signup_field_col_sm">
-                    <div class="form-group">
-                        <div class="signup_field_wrap">
-                            <label for="Password"> Confirm Password</label>
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", required = "required" })
-                            @if (ViewData.ModelState["ConfirmPassword"] != null && ViewData.ModelState["ConfirmPassword"].Errors.Any())
-                            {
-                                <i class="fa fa-info-circle field_error_icon"></i>
-                            }
-                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             <div class="form-group">
@@ -157,4 +179,61 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $("#Colleges").change(function () {
+        LoadDepartments();
+    });
+
+    function LoadDepartments() {
+        var collegeId = document.getElementById("Colleges");
+        var ID = collegeId.options[collegeId.selectedIndex].value;
+        var depatments = document.getElementById("departments");
+        console.log(ID);
+        @*$.ajax({
+            url: '@Url.Action("getDepartment","Account")',
+            type: 'POST',
+            dataType: 'json',
+            data: { idString: ID },
+            success: function (data) {
+                console.log(data);
+                console.log(ID);
+
+                //SubMain.innerHTML = "";
+                //$.each(data, function (i, item) {
+                //    var options = "<option value='" + item.ID + "' id='" + item.ID + "'>" + item.Const_Name + "</option>";
+
+                //    $('#SubMain').append(options);
+                //});
+            },
+            error: function (ex) {
+
+            }
+        });*@
+
+         $.ajax({
+                url: '@Url.Action("getDepartment","Web")',
+                type: 'POST',
+                dataType: "json",
+                data: { idString: ID },
+                success: function (result) {
+                    console.log(result)
+                    depatments.innerHTML = "";
+                    $.each(result, function (i, result) {
+                    var options = "<option value='" + result.Id + "' id='" + result.Id + "'>" + result.name + "</option>";
+
+                    $('#departments').append(options);
+                });
+                    },
+                failure: function (response) {
+                        alert(response.responseText);
+                        console.log(response.responseText);
+                     },
+                error: function (response) {
+                        alert(response.responseText);
+                        console.log(response.responseText);
+                    }
+            });
+}
+</script>
 }

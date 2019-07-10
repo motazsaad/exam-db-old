@@ -87,7 +87,7 @@ namespace exam_db.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name",department.college_Id);
+            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name",department.collegeId);
             return View(department);
         }
 
@@ -103,7 +103,7 @@ namespace exam_db.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name", department.college_Id);
+            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name", department.collegeId);
             return View(department);
         }
 
@@ -120,7 +120,7 @@ namespace exam_db.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name", department.college_Id);
+            ViewBag.Colleges = new SelectList(db.Colleges, "Id", "name", department.collegeId);
             return View(department);
         }
 
