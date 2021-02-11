@@ -15,6 +15,7 @@ namespace exam_db.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -139,6 +140,7 @@ namespace exam_db.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Colleges = db.Colleges.ToList();
             return View();
         }
 
@@ -151,8 +153,9 @@ namespace exam_db.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email , collegeId = model.collegeId,depatrmantId = model.departmentId };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
@@ -172,6 +175,17 @@ namespace exam_db.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+        public JsonResult getDepartment(String idString)
+        {
+            int i = 0;
+            Int32.TryParse(idString, out i);
+
+            db.Configuration.ProxyCreationEnabled = false;
+            var deparments = db.Departments.Where(a => a.collegeId == i).ToList();
+
+            ViewBag.test = "Hello";
+            return Json("Hello", JsonRequestBehavior.AllowGet);
         }
 
         // GET: /Account/RegisterSuccess

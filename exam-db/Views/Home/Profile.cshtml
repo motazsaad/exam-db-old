@@ -1,0 +1,589 @@
+﻿
+<link href="~/Content/profile_page.css" rel="stylesheet" />
+
+<!-- Start Profile Header -->
+
+<div class="profile_header">
+    <div class="container">
+        <div class="profile_user">
+            <div class="user_img_holder">
+                <img src="~/Content/images/team-1.jpg" />
+            </div>
+            <div class="user_info_holder">
+                <h2 class="username">Omar Kishko</h2>
+                <h5 class="user_college">Information Technology</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Profile Header -->
+<!-- Start Page Content -->
+
+<div class="container">
+    <div class="profile_page">
+        <!-- Start Profile page Navbar-->
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id=" -tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="true">Personal Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id=" -tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Uploaded files</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id=" -tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="false">Favorites</a>
+            </li>
+        </ul>
+
+        <!-- End Profile page Navbar-->
+        <!-- Start Taps Content -->
+
+        <div class="tab-content" id="">
+
+            <!-- Start Personal Information content  -->
+
+            <div class="tab-pane personal_info pt-5 fade show active" id="one">
+                <!-- Profile Section -->
+                <section>
+                    <h5 class="personal_info_title">Profile</h5>
+
+                    <div class="info_filed editable" data-toggle="modal" data-target="#nameModal">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <lable class="info_filed_key">Name</lable>
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="info_filed_value">Omar kishko</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Start Changing "Name" Modal -->
+
+                    <div class="profile_modal modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="">Name</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input_field_wrap">
+                                                    <label for="ItemTitle"> First Name</label>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input_field_wrap">
+                                                    <label for="ItemTitle"> Last Name</label>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Changing "Name" Modal -->
+
+                    <div class="info_filed">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <lable class="info_filed_key">Email</lable>
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="info_filed_value">omarskishko@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_filed">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <lable class="info_filed_key">Country</lable>
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="info_filed_value">Palestine</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Education Section -->
+                <section>
+                    <h5 class="personal_info_title ">Education</h5>
+
+                    <div class="info_filed">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <lable class="info_filed_key">University</lable>
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="info_filed_value">Islamic university of Gaza</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_filed editable" data-toggle="modal" data-target="#collegeModal">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <lable class="info_filed_key">College</lable>
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="info_filed_value">Information technology</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Start Changing "College" Modal -->
+
+                    <div class="profile_modal modal fade" id="collegeModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="">College</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input_field_wrap">
+                                                    <select class="form-control">
+                                                        <option>Medicine</option>
+                                                        <option>Engineering</option>
+                                                        <option>Information Technology</option>
+                                                        <option>Nursing</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Changing "Password" Modal -->
+
+                </section>
+
+                <!-- Security Section -->
+                <section>
+                    <h5 class="personal_info_title">Security</h5>
+
+                    <div class="info_filed editable" data-toggle="modal" data-target="#passwordModal">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <lable class="info_filed_key">Password</lable>
+                            </div>
+                            <div class="col-md-10">
+                                <h6 class="info_filed_value">*************</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Start Changing "College" Modal -->
+
+                    <div class="profile_modal modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="">Password</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input_field_wrap">
+                                                    <label for="ItemTitle"> Currently password</label>
+                                                    <input type="password" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input_field_wrap">
+                                                    <label for="ItemTitle"> New password</label>
+                                                    <input type="password" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input_field_wrap">
+                                                    <label for="ItemTitle"> Confirm new password</label>
+                                                    <input type="password" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Changing "Password" Modal -->
+
+                </section>
+
+            </div>
+
+            <!-- End Personal Information content  -->
+            <!-- Start Uploaded files content -->
+
+            <div class="tab-pane fade" id="two">
+
+                <ul class="list-unstyled uploaded_list">
+                    <!-- Start list item show (repeat it inside for loop)-->
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <p class="item_upload_date"><i class="fa fa-clock-o"></i>02:34pm  -  May 14, 2019</p>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2019</span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End list item show (repeat it inside for loop)-->
+
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <p class="item_upload_date"><i class="fa fa-clock-o"></i>02:34pm  -  May 14, 2019</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2018</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <p class="item_upload_date"><i class="fa fa-clock-o"></i>02:34pm  -  May 14, 2019</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2017</span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- End Uploaded files content -->
+            <!-- Start Favorites content  -->
+
+            <div class="tab-pane fade" id="three">
+
+                <ul class="list-unstyled uploaded_list">
+                    <!-- Start list item show (repeat it inside for loop)-->
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <a class="black_link no_decoration" style="display:block" href="#">
+                                                    <div class="item_owner">
+                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                        <span class="item_owner_name">omar kishko</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2019</span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End list item show (repeat it inside for loop)-->
+
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <a class="black_link no_decoration" style="display:block" href="#">
+                                                    <div class="item_owner">
+                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                        <span class="item_owner_name">omar kishko</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2018</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <a class="black_link no_decoration" style="display:block" href="#">
+                                                    <div class="item_owner">
+                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                        <span class="item_owner_name">omar kishko</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2018</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="item">
+                            <div class="item_body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="item_img_and_info_holder">
+                                            <div class="item_type_img_holder">
+                                                <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                            </div>
+                                            <div class="item_info">
+                                                <a class="black_link no_decoration" href="~/Web/File">
+                                                    <h6 class="item_title">database midterm exam</h6>
+                                                </a>
+                                                <span class="item_college">Information technology - <span>Computer science</span></span>
+                                                <a class="black_link no_decoration" style="display:block" href="#">
+                                                    <div class="item_owner">
+                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                        <span class="item_owner_name">omar kishko</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="item_statistics">
+                                            <div class="statistic">
+                                                <i class="fa fa-heart"></i> 184
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-eye"></i> 301
+                                            </div>
+                                            <div class="statistic">
+                                                <i class="fa fa-download"></i> 190
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="item_date">2017</span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- End Favorites content  -->
+
+
+        </div>
+    </div>
+</div>
+<!-- End Page Content -->
+
+@section scripts {
+    <script>
+        // Javascript to enable link to tab
+        var url = document.location.toString();
+        if (url.match('#')) {
+            $('.nav-tabs a[href="#' + url.split('#')[1] + '"]').tab('show');
+        }
+
+        // Change hash for page-reload
+        $('.nav-tabs a').on('shown.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+        })
+    </script>
+}

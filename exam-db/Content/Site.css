@@ -81,16 +81,17 @@ input.search_input {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }*/
-.search_container .fa-search{
-    position: absolute;
-    top: 12px;
-    right: 42px;
-    color: #a2a2a2;
-}
+        .search_container .fa-search {
+            position: absolute;
+            top: 11px;
+            right: 28px;
+            color: #a2a2a2;
+        }
         .search_container .filter_btn {
             border: none;
             background: transparent;
             outline: none;
+            cursor: pointer
         }
             .search_container .filter_btn:hover {
                 color: var(--main-color)
@@ -265,6 +266,11 @@ a.dropdownUserMenu_item {
     .item:hover {
         box-shadow: 0px 3px 10px -3px #d6dcdf;
     }
+    .item:hover .item_date{
+        background-color: var(--main-color);
+        color: #FFF !important;
+        border-color: var(--main-color);
+    }
 
         .item:hover .statistic:first-of-type {
             color: #e53939 !important
@@ -279,14 +285,17 @@ a.dropdownUserMenu_item {
         }
 
     .item .item_body {
-        padding: 20px;
+        padding: 15px 20px;
+        position:relative
     }
 
         .item .item_body .item_img_and_info_holder {
-            display: flex
+            display: flex;
         }
 
         .item .item_body .item_type_img_holder {
+            display: flex;
+            align-items: center;
         }
 
             .item .item_body .item_type_img_holder .item_type_img {
@@ -300,7 +309,7 @@ a.dropdownUserMenu_item {
         }
 
             .item .item_body .item_info .item_title {
-                margin-bottom: 5px;
+                margin-bottom: 0px;
                 max-width: 400px;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -346,4 +355,19 @@ a.dropdownUserMenu_item {
                 .item .item_body .item_statistics .statistic i.fa {
                     margin-right: 5px;
                 }
+
+        .item .item_body .item_info .item_college {
+            font-size: 12px;
+            color: #818181;
+        }
+        .item .item_body .item_date {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            padding: 0px 10px;
+            border: 1px solid #e5e5e5;
+            border-top-right-radius: 5px;
+            color: #b0b0b0;
+            transition: all .2s ease-in-out
+        }
     /*End Item Design */

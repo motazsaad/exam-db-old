@@ -1,0 +1,135 @@
+﻿
+<link href="~/Content/courses.css" rel="stylesheet" />
+<div class="container">
+    <div class="courses_page">
+        <h4 class="courses_page_title">University Requirements</h4>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <a class="black_link no_decoration" href="~/Web/Course">
+                    <div class="course_card">
+                        <div class="course_title">
+
+                            <h6 class="course_name">Advanced Software Engineering</h6>
+
+                            <span class="course_code">Code | SDEV 4304</span>
+                        </div>
+
+                        <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-6">
+
+                <a class="black_link no_decoration" href="~/Web/Course">
+                    <div class="course_card">
+                        <div class="course_title">
+
+                            <h6 class="course_name">Advanced Software Engineering</h6>
+
+                            <span class="course_code">Code | SDEV 4304</span>
+                        </div>
+
+                        <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-6">
+
+                <a class="black_link no_decoration" href="~/Web/Course">
+                    <div class="course_card">
+                        <div class="course_title">
+
+                            <h6 class="course_name">Advanced Software Engineering</h6>
+
+                            <span class="course_code">Code | SDEV 4304</span>
+                        </div>
+
+                        <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-6">
+
+                <a class="black_link no_decoration" href="~/Web/Course">
+                    <div class="course_card">
+                        <div class="course_title">
+
+                            <h6 class="course_name">Advanced Software Engineering</h6>
+
+                            <span class="course_code">Code | SDEV 4304</span>
+                        </div>
+
+                        <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-6">
+
+                <a class="black_link no_decoration" href="~/Web/Course">
+                    <div class="course_card">
+                        <div class="course_title">
+
+                            <h6 class="course_name">Advanced Software Engineering</h6>
+
+                            <span class="course_code">Code | SDEV 4304</span>
+                        </div>
+
+                        <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-6">
+
+                <a class="black_link no_decoration" href="~/Web/Course">
+                    <div class="course_card">
+                        <div class="course_title">
+
+                            <h6 class="course_name">Advanced Software Engineering</h6>
+
+                            <span class="course_code">Code | SDEV 4304</span>
+                        </div>
+
+                        <span class="course_items_number"><i class="fa fa-file-o"></i> 28 items</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <nav class="pagination_nav">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+@section scripts {
+
+    <script>
+        // Javascript to enable link to tab
+        var url = document.location.toString();
+        if (url.match('#')) {
+            $('.nav-tabs a[href="#' + url.split('#')[1] + '"]').tab('show');
+        }
+
+        // Change hash for page-reload
+        $('.nav-tabs a').on('shown.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+        })
+    </script>
+
+}

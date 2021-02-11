@@ -56,13 +56,28 @@
 .side_nav ul.side_nav_list a:hover {
     color: var(--main-color)
 }
-.homepage_contant {
-    min-height: calc(100vh - 65px);
-    height: 100%;
-    background: #FFF;
-    padding: 50px 40px 0;
-    margin-right: -15px;
-}
+    .side_nav ul.side_nav_list li.colleges:hover ul.colleges_list {
+        display:block;
+    }
+    .side_nav ul.side_nav_list li.colleges ul.colleges_list {
+        display: none;
+        width: 270px;
+        position: absolute;
+        top: 0;
+        right: -260px;
+        z-index: 2;
+        background: #fafafa;
+        padding: 5px 0;
+        box-shadow: 1px 1px 5px 0px #dbdbdb;
+    }
+        
+        .homepage_contant {
+            min-height: calc(100vh - 65px);
+            height: 100%;
+            background: #FFF;
+            padding: 50px 40px 0;
+            margin-right: -15px;
+        }
 
     .homepage_contant .upload_container {
         border: 2px dashed #d8d8d8;

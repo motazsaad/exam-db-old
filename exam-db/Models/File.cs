@@ -9,9 +9,21 @@ namespace exam_db.Models
 
     public enum FileType
     {
+
+        csv,
+        txt,
         png,
-        Jpg,
-        Pdf
+        jpg,
+        pdf,
+        ppt,
+        xls,
+        docx,
+        number,
+        pages,
+        key,
+        rtf,
+        oft,
+        lba
     }
     public class File
     { 
@@ -26,6 +38,10 @@ namespace exam_db.Models
         public int view_numbre { get; set; }
         public int year { get; set; }
         public int semester { get; set; }
-        
+        public String Category { get; set; }//file category (quiz , exam,others,Summaries);
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }
+		//we still need to add application user to point to the user , also the department_id 
+
     }
 }

@@ -14,18 +14,47 @@
                 <div class="holder">
                     <h6 class="side_nav_headers"><i class="fa fa-clock-o"></i> Recent Searches</h6>
                     <ul class="list-unstyled side_nav_list">
-                        <a href="#"><li>database exam <a href="#"> <i class="fa fa-close"></i></a> </li></a>
-                        <a href="#"><li>data strucher mid exam <a href="#"> <i class="fa fa-close"></i></a> </li></a>
-                        <a href="#"><li>web design final <a href="#"> <i class="fa fa-close"></i></a></li> </a>
-                        <a href="#"><li>bla bla bla <a href="#"> <i class="fa fa-close"></i></a></li></a>
-                        <a href="#"><li>bla bla bla <a href="#"> <i class="fa fa-close"></i></a></li></a>
+					 @{
+                            string[] re = { "fresh" };
+                            if (System.Web.HttpContext.Current.Session["Questions"] != null)
+                            {
+                                re = (string[])System.Web.HttpContext.Current.Session["Questions"];
+
+                            }
+
+                        }
+						
+                        @for (int i = 0; i < re.Length; i++)
+                        {
+                            <a href="#"><li>@re.GetValue(i) <a href="#"> <i class="fa fa-close"></i></a></li></a>
+                            
+                        }
                     </ul>
-                    <h6 class="side_nav_headers"><i class="fa fa-list-alt"></i> Categories</h6>
+                    <h6 class="side_nav_headers"><i class="fa fa-list-alt"></i> Courses Categories</h6>
                     <ul class="list-unstyled side_nav_list">
-                        <a href="#"><li>University requirement</li></a>
-                        <a href="#"><li>Department requirement</li></a>
-                        <a href="#"><li>Specialty requirement</li></a>
-                    </ul>
+                        <a href="~/Web/UniversityRequirements"><li>University requirement</li></a>
+                        <li class="colleges">College requirement
+                            <ul class="list-unstyled colleges_list">
+                                @* get them from database *@
+                                @foreach (var item in ViewBag.college)
+                                {
+                                    <a href="@Url.Action("College","Web",new {CollegeId =item.Id } )"><li>Faculty of @item.name</li></a>
+
+                                }
+                                @*<a href="~/Web/College"><li>Faculty of Medicine</li></a>
+                                <a href="~/Web/College"><li>Faculty of Engineering</li></a>
+                                <a href="~/Web/College"><li>Faculty of Information Technology</li></a>
+                                <a href="~/Web/College"><li>Faculty of Nursing</li></a>
+                                <a href="~/Web/College"><li>Faculty of Science</li></a>
+                                <a href="~/Web/College"><li>Faculty of Health Science</li></a>
+                                <a href="~/Web/College"><li>Faculty of Education</li></a>
+                                <a href="~/Web/College"><li>Faculty of Arts</li></a>
+                                <a href="~/Web/College"><li>Faculty of Sharia & Law</li></a>
+                                <a href="~/Web/College"><li>Faculty of Osoul Eddin</li></a>
+                                <a href="~/Web/College"><li>Faculty of Commerce</li></a>*@
+                            </ul>
+                        </li>
+                     </ul>
                 </div>
 
             </div>
@@ -38,13 +67,13 @@
                     <!-- Start File Upload Section -->
                     <h4>File Upload</h4>
 
-                    <form id="drag-and-drop-zone" class=" upload_container" action="/file-upload" method="POST" enctype="multipart/form-data">
+                    <form id="drag-and-drop-zone" class=" upload_container" action="/Files/Create" method="POST" enctype="multipart/form-data">
                         <div class="text-center">
                             <img class="cloud_upload_img" src="~/Content/images/cloud.png" />
                             <p>Drag &amp; Drop Files Here or <span class="browse_btn_holder">Browse <input class="browse_btn" type="file" title='Click to add Files' /> </span> to upload files</p>
 
                         </div>
-                        
+                        @Html.AntiForgeryToken()
                         <!-- Modal -->
                         <div class="upload_file_modal modal fade" id="uploadFileModal" tabindex="-1" role="dialog" aria-labelledby="uploadFileModal" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -55,6 +84,9 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
+                                    <input name="path" type="hidden" id="path" />
+                                    <input name="type" type="hidden" id="type" />
+
                                     <div class="modal-body">
 
                                         <div class="container">
@@ -67,17 +99,28 @@
                                                     <div class="form-group">
                                                         <div class="upload_field_wrap">
                                                             <label for="ItemTitle"> File Title</label>
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" name="title" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <div class="upload_field_wrap">
+                                                            <label for="ItemTitle"> File Category</label>
+                                                            <input type="text" name="Category" class="form-control" placeholder="quiz , exam,Summaries,others" />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="upload_field_wrap">
-                                                            <select class="form-control">
-                                                                <option value="" disabled selected>Department</option>
-                                                                <option value="">value 1</option>
-                                                                <option value="">value 2</option>
+                                                            <select class="form-control" name="Department_Id">
+                                                                @foreach (var item in ViewBag.departments)
+                                                                {
+                                                                    <option value="@item.Id">@item.name</option>
+                                                                }
+
+
                                                             </select>
                                                         </div>
                                                     </div>
@@ -85,10 +128,11 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="upload_field_wrap">
-                                                            <select class="form-control">
-                                                                <option value="" disabled selected>Course Name</option>
-                                                                <option value="">value 1</option>
-                                                                <option value="">value 2</option>
+                                                            <select class="form-control" name="Course_Id">
+                                                                @foreach (var item in ViewBag.courses)
+                                                                {
+                                                                    <option value="@item.Id">@item.name</option>
+                                                                }
                                                             </select>
                                                         </div>
                                                     </div>
@@ -97,7 +141,7 @@
                                                     <div class="form-group">
                                                         <div class="upload_field_wrap">
                                                             <label for="description">Description</label>
-                                                            <textarea class="form-control" id="" rows="3"></textarea>
+                                                            <textarea class="form-control" id="" name="description" rows="3"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -106,145 +150,73 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Save</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </form>
-                  
-                    
 
-                   
+
+
+
                     <!-- End File Upload Section -->
                     <!-- Start Recommended Section -->
                     <h4>Recommended</h4>
                     <ul class="list-unstyled recommended_list">
                         <!-- Start list item show (repeat it inside for loop)-->
-                        <li>
-                            <div class="item">
-                                <div class="item_body">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="item_img_and_info_holder">
-                                                <div class="item_type_img_holder">
-                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                                </div>
-
-                                                <div class="item_info">
-                                                    <a class="black_link no_decoration" href="#">
-                                                        <h6 class="item_title">database midterm exam</h6>
-                                                    </a>
-                                                    <a class="black_link no_decoration" href="#">
-                                                        <div class="item_owner">
-                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                            <span class="item_owner_name">omar kishko</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="item_statistics">
-                                                <div class="statistic">
-                                                    <i class="fa fa-heart"></i> 184
-                                                </div>
-                                                <div class="statistic">
-                                                    <i class="fa fa-eye"></i> 301
-                                                </div>
-                                                <div class="statistic">
-                                                    <i class="fa fa-download"></i> 190
+                        @foreach (var item in ViewBag.files)
+                        {
+                            <li>
+                                <div class="item">
+                                    <div class="item_body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="item_img_and_info_holder">
+                                                    <div class="item_type_img_holder">
+                                                        <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                    </div>
+                                                    <div class="item_info">
+                                                        <a class="black_link no_decoration" href="~/Files/Details/@item.Id">
+                                                            <h6 class="item_title">@item.title</h6>
+                                                        </a>
+                                                        <span class="item_college">
+                                                        item.Course.name
+                                                        </span>
+                                                        <a class="black_link no_decoration" style="display:block" href="#">
+                                                            <div class="item_owner">
+                                                                <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                                <span class="item_owner_name">item.ApplicationUser.name</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End list item show (repeat it inside for loop)-->
-
-                        <li>
-                            <div class="item">
-                                <div class="item_body">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="item_img_and_info_holder">
-                                                <div class="item_type_img_holder">
-                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                                </div>
-
-                                                <div class="item_info">
-                                                    <a class="black_link no_decoration" href="#">
-                                                        <h6 class="item_title">database midterm exam</h6>
-                                                    </a>
-                                                    <a class="black_link no_decoration" href="#">
-                                                        <div class="item_owner">
-                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                            <span class="item_owner_name">omar kishko</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="item_statistics">
-                                                <div class="statistic">
-                                                    <i class="fa fa-heart"></i> 184
-                                                </div>
-                                                <div class="statistic">
-                                                    <i class="fa fa-eye"></i> 301
-                                                </div>
-                                                <div class="statistic">
-                                                    <i class="fa fa-download"></i> 190
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="item">
-                                <div class="item_body">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="item_img_and_info_holder">
-                                                <div class="item_type_img_holder">
-                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
-                                                </div>
-
-                                                <div class="item_info">
-                                                    <a class="black_link no_decoration" href="#">
-                                                        <h6 class="item_title">database midterm exam</h6>
-                                                    </a>
-                                                    <div class="item_owner">
-                                                        <img class="item_owner_img" src="~/Content/images/avatar.png" />
-                                                        <span class="item_owner_name">omar kishko</span>
+                                            <div class="col-md-4">
+                                                <div class="item_statistics">
+                                                    <div class="statistic">
+                                                        <i class="fa fa-heart"></i>@item.like_number
+                                                    </div>
+                                                    <div class="statistic">
+                                                        <i class="fa fa-eye"></i> @item.view_numbre
+                                                    </div>
+                                                    <div class="statistic">
+                                                        <i class="fa fa-download"></i> @item.Download_number
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="item_statistics">
-                                                <div class="statistic">
-                                                    <i class="fa fa-heart"></i> 184
-                                                </div>
-                                                <div class="statistic">
-                                                    <i class="fa fa-eye"></i> 301
-                                                </div>
-                                                <div class="statistic">
-                                                    <i class="fa fa-download"></i> 190
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                        <span class="item_date">2019</span>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        }
+                            <!-- End list item show (repeat it inside for loop)-->
 
-                    </ul>
+
+                        </ul>
                     <!-- End Recommended Section -->
                 </div>
             </div>
@@ -265,7 +237,7 @@
              * drag & drop file uploding plugin configuration & callbacks.
              */
             $('#drag-and-drop-zone').dmUploader({ //
-                url: 'backend/upload.php',
+                url: '/forFileUpload',
                 maxFileSize: 3000000, // 3 Megs
                 onDragEnter: function () {
                     // Happens when dragging something over the DnD area
@@ -315,6 +287,9 @@
                     ui_add_log('Upload of file #' + id + ' COMPLETED', 'success');
                     ui_multi_update_file_status(id, 'success', 'Upload Complete');
                     ui_multi_update_file_progress(id, 100, 'success', false);
+                     var res = data.split(".");
+                    $('#path').val(data);
+                    $('#type').val(res[1]);
                 },
                 onUploadError: function (id, xhr, status, message) {
                     ui_multi_update_file_status(id, 'danger', message);

@@ -48,9 +48,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -69,8 +87,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
@@ -100,9 +116,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -204,23 +217,20 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
+    <Compile Include="Controllers\WebController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903141515026_InitialCreate.cs" />
-    <Compile Include="Migrations\201903141515026_InitialCreate.Designer.cs">
-      <DependentUpon>201903141515026_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201905150910080_addAll.cs" />
+    <Compile Include="Migrations\201905150910080_addAll.Designer.cs">
+      <DependentUpon>201905150910080_addAll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903211123372_editfile.cs" />
-    <Compile Include="Migrations\201903211123372_editfile.Designer.cs">
-      <DependentUpon>201903211123372_editfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903211128258_editAll.cs" />
-    <Compile Include="Migrations\201903211128258_editAll.Designer.cs">
-      <DependentUpon>201903211128258_editAll.cs</DependentUpon>
+    <Compile Include="Migrations\201905160950026_editFile.cs" />
+    <Compile Include="Migrations\201905160950026_editFile.Designer.cs">
+      <DependentUpon>201905160950026_editFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\College.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -240,6 +250,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\courses.css" />
     <Content Include="Content\customAnimation.css" />
+    <Content Include="Content\file-item-page.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\homepage.css" />
@@ -254,10 +265,13 @@
     <Content Include="Content\images\files_types\xls.png" />
     <Content Include="Content\images\logo-small.png" />
     <Content Include="Content\images\files_types\pdf.png" />
+    <Content Include="Content\images\profile-background.png" />
+    <Content Include="Content\images\team-1.jpg" />
     <Content Include="Content\images\writing-1149962_1280.jpg" />
     <Content Include="Content\jquery.dm-uploader.min.css" />
     <Content Include="Content\login_signup.css" />
     <Content Include="Content\pretty-checkbox.min.css" />
+    <Content Include="Content\profile_page.css" />
     <Content Include="Content\search.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -268,6 +282,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery.dm-uploader.min.js" />
+    <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\upload_file_ui.js" />
     <Content Include="Web.config" />
@@ -304,13 +319,21 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905150910080_addAll.resx">
+      <DependentUpon>201905150910080_addAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905160950026_editFile.resx">
+      <DependentUpon>201905160950026_editFile.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="libman.json" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Colleges\Create.cshtml" />
@@ -339,23 +362,20 @@
     <Content Include="Views\Universities\Edit.cshtml" />
     <Content Include="Views\Universities\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <None Include="Properties\PublishProfiles\examdb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\examdb - Web Deploy.pubxml" />
+    <Content Include="Views\Web\College.cshtml" />
+    <Content Include="Views\Web\Course.cshtml" />
+    <Content Include="Views\Web\File.cshtml" />
+    <Content Include="Views\Web\UniversityRequirements.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Home\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903141515026_InitialCreate.resx">
-      <DependentUpon>201903141515026_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903211123372_editfile.resx">
-      <DependentUpon>201903211123372_editfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903211128258_editAll.resx">
-      <DependentUpon>201903211128258_editAll.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

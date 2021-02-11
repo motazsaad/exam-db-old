@@ -1,90 +1,215 @@
 ﻿@model exam_db.Models.File
 
-@{
-    Layout = null;
-}
+<link href="~/Content/file-item-page.css" rel="stylesheet" />
+<div class="container">
+    <div class="file_page">
+        <div class="file_box">
+            <div class="file_main_info">
+                <div class="file_title_holder">
+                    <h4 class="file_title" @Html.DisplayFor(model => model.title)</h4>
+                    <div class="h4"><span class="badge badge-info">2019</span></div>
+                </div>
+                <div class="download_info">
+                    <span class="file_size"> @Html.DisplayFor(model => model.size) MB</span>
+                    <div class="type_img_holder">
+                        <img src="~/Content/images/files_types/@Html.DisplayFor(model => model.type)+.png" />
+                    </div>
+                    <a class="btn btn-success" id="download" data-id="@Html.DisplayFor(model => model.Id)" data-ds="@Html.DisplayFor(model => model.like_number)" href="~/Content/MediaUploader/@Html.DisplayFor(model => model.path)"><i class="fa fa-download"></i> Download</a>
+                </div>
 
-<!DOCTYPE html>
+                <div class="file_college_info">
+                    <span><i class="fa fa-wpexplorer"></i> model.Course.name</span>
+                    <span><i class="fa fa-bank"></i> model.Department.name</span>
+                </div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>File</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.title)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.title)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.path)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.path)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.type)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.type)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.size)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.size)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.like_number)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.like_number)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.dislike_number)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.dislike_number)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Download_number)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Download_number)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.view_numbre)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.view_numbre)
-            </dd>
-    
-        </dl>
+
+                <div class="file_desc">
+                    <p>
+                        Html.DisplayFor(model => model.detials)
+                    </p>
+                </div>
+                <p class="item_upload_date"><i class="fa fa-clock-o"></i>upload: 02:34pm  -  May 14, 2019</p>
+
+                <div class="flex-row d-flex align-items-center ">
+                   
+                        <a class="btn favorite like" data-id="@Html.DisplayFor(model => model.Id)" data-likes="@Html.DisplayFor(model => model.like_number)" id="favorite_btn" href="#" title="Favorite"> <i class="fa fa-heart-o"></i> </a>
+
+                        <div class="file_statistics">
+                            <div class="statistic">
+                                <i class="fa fa-heart"></i>  <span id="like_k">@Html.DisplayFor(model => model.like_number)</span>
+                            </div>
+                            <div class="statistic">
+                                <i class="fa fa-eye"></i>  @Html.DisplayFor(model => model.view_numbre)
+                            </div>
+                            <div class="statistic">
+                                <i class="fa fa-download"></i>  <span id="ds_k">@Html.DisplayFor(model => model.Download_number)</span>
+</div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Report Abuse -->
+            <a class="report_abuse" data-toggle="modal" data-target="#reportAbuseModal" href="#" title="Report Abuse"><i class="fa fa-thumbs-o-down"></i> Report</a>
+            <div class="report_abuse_modal modal fade" id="reportAbuseModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id=""><i class="fa fa-thumbs-o-down"></i> Report this file</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>all reports are strictly confidential</strong> This appears to be:</p>
+
+
+
+
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report1" value="option1">
+                                <label class="custom-control-label" for="report1">
+                                    The download link does not work
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report2" value="option2">
+                                <label class="custom-control-label" for="report2">
+                                    Spam or Scam
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report3" value="option3">
+                                <label class="custom-control-label" for="report3">
+                                    Content is morally offensive
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report4" value="option4">
+                                <label class="custom-control-label" for="report4">
+                                    Empty Content
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report5" value="option5">
+                                <label class="custom-control-label" for="report5">
+                                    Wrong classification
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report6" value="option6">
+                                <label class="custom-control-label" for="report6">
+                                    Report Abuse
+                                </label>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <h4 class="mb-4">Related Files</h4>
+        <ul class="list-unstyled recommended_list">
+            <!-- Start list item show (repeat it inside for loop)-->
+            @foreach (var item in ViewBag.files)
+            {
+                <li>
+                    <div class="item">
+                        <div class="item_body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="item_img_and_info_holder">
+                                        <div class="item_type_img_holder">
+                                            <img class="item_type_img" src="~/Content/images/files_types/@{@item.type}.png" />
+                                        </div>
+                                        <div class="item_info">
+                                            <a class="black_link no_decoration" href="~/File/@item.Id">
+                                                <h6 class="item_title">@item.title</h6>
+                                            </a>
+                                            <span class="item_college">
+                                                item.Course.name
+                                            </span>
+                                            <a class="black_link no_decoration" style="display:block" href="#">
+                                                <div class="item_owner">
+                                                    <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                    <span class="item_owner_name">item.ApplicationUser.name</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="item_statistics">
+                                        <div class="statistic">
+                                            <i class="fa fa-heart"></i>@item.like_number
+                                        </div>
+                                        <div class="statistic">
+                                            <i class="fa fa-eye"></i> @item.view_numbre
+                                        </div>
+                                        <div class="statistic">
+                                            <i class="fa fa-download"></i> @item.Download_number
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="item_date">2019</span>
+                        </div>
+                    </div>
+                </li>
+            }
+            <!-- End list item show (repeat it inside for loop)-->
+
+          
+
+        </ul>
+
+
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+</div>
+
+@section scripts {
+    <script>// toggle favorite icon
+        $('#favorite_btn').on('click', function () {
+            $('#favorite_btn i.fa').toggleClass('fa-heart-o fa-heart');
+             id = $(this).data('id');
+                var like = parseInt($(this).data('likes'))+1;
+                var likes = $("#like_k");
+                $.ajax
+                    ({
+                        url: '/Handler2',
+                        data: { "id": id },
+                        type: 'get',
+                        success: function (result) {
+                            likes.html(like);
+                        }
+                    });
+        });
+        $("#download").on('click', function (e) {
+            e.preventDefault();
+             id = $(this).data('id');
+                var like = parseInt($(this).data('ds'))+1;
+                var likes = $("#ds_k");
+             $.ajax
+                    ({
+                        url: '/newDownload',
+                        data: { "id": id },
+                        type: 'get',
+                     success: function (result) {
+                          likes.html(like);
+                         document.location.href = "/Content/MediaUploader/@Html.DisplayFor(model => model.path)";
+                        }
+                    });
+        });
+
+       
+    </script>
+}

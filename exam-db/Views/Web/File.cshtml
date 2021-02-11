@@ -1,0 +1,266 @@
+﻿@model exam_db.Models.File
+
+<link href="~/Content/file-item-page.css" rel="stylesheet" />
+<div class="container">
+    <div class="file_page">
+        <div class="file_box">
+            <div class="file_main_info">
+                <div class="file_title_holder">
+                    <h4 class="file_title">Database midterm Exam</h4>
+                    <div class="h4"><span class="badge badge-info">2019</span></div>
+                </div>
+                 <div class="download_info">
+                    <span class="file_size">5 MB</span>
+                    <div class="type_img_holder">
+                        <img src="~/Content/images/files_types/pdf.png" />
+                    </div>
+                    <a class="btn btn-success" href="#"><i class="fa fa-download"></i> Download</a>
+                </div>
+
+                <div class="file_college_info">
+                    <span><i class="fa fa-wpexplorer"></i> Computer Science</span>
+                    <span><i class="fa fa-bank"></i> Information Technology</span>
+                </div>
+
+
+                <div class="file_desc">
+                    <p>
+                        Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology Information Technology
+                    </p>
+                </div>
+                <p class="item_upload_date"><i class="fa fa-clock-o"></i>upload: 02:34pm  -  May 14, 2019</p>
+
+                <div class="flex-row d-flex align-items-center ">
+
+                    <a class="favorite" id="favorite_btn" href="#" title="Favorite"> <i class="fa fa-heart-o"></i> </a>
+
+                    <div class="file_statistics">
+                        <div class="statistic">
+                            <i class="fa fa-heart"></i> 184
+                        </div>
+                        <div class="statistic">
+                            <i class="fa fa-eye"></i> 301
+                        </div>
+                        <div class="statistic">
+                            <i class="fa fa-download"></i> 190
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Report Abuse -->
+            <a class="report_abuse" data-toggle="modal" data-target="#reportAbuseModal" href="#" title="Report Abuse"><i class="fa fa-thumbs-o-down"></i> Report</a>
+            <div class="report_abuse_modal modal fade" id="reportAbuseModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id=""><i class="fa fa-thumbs-o-down"></i> Report this file</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>all reports are strictly confidential</strong> This appears to be:</p>
+
+
+
+
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report1" value="option1">
+                                <label class="custom-control-label" for="report1">
+                                    The download link does not work
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report2" value="option2">
+                                <label class="custom-control-label" for="report2">
+                                    Spam or Scam
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report3" value="option3">
+                                <label class="custom-control-label" for="report3">
+                                    Content is morally offensive
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report4" value="option4">
+                                <label class="custom-control-label" for="report4">
+                                    Empty Content
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report5" value="option5">
+                                <label class="custom-control-label" for="report5">
+                                    Wrong classification
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" name="report" id="report6" value="option6">
+                                <label class="custom-control-label" for="report6">
+                                    Report Abuse
+                                </label>
+                            </div>
+
+
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <h4 class="mb-4">Related Files</h4>
+        <ul class="list-unstyled recommended_list">
+            <!-- Start list item show (repeat it inside for loop)-->
+            <li>
+                <div class="item">
+                    <div class="item_body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="item_img_and_info_holder">
+                                    <div class="item_type_img_holder">
+                                        <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                    </div>
+                                    <div class="item_info">
+                                        <a class="black_link no_decoration" href="~/Web/File">
+                                            <h6 class="item_title">database midterm exam</h6>
+                                        </a>
+                                        <span class="item_college">Information technology - <span>Computer science</span></span>
+                                        <a class="black_link no_decoration" style="display:block" href="#">
+                                            <div class="item_owner">
+                                                <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                <span class="item_owner_name">omar kishko</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item_statistics">
+                                    <div class="statistic">
+                                        <i class="fa fa-heart"></i> 184
+                                    </div>
+                                    <div class="statistic">
+                                        <i class="fa fa-eye"></i> 301
+                                    </div>
+                                    <div class="statistic">
+                                        <i class="fa fa-download"></i> 190
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="item_date">2019</span>
+                    </div>
+                </div>
+            </li>
+            <!-- End list item show (repeat it inside for loop)-->
+
+            <li>
+                <div class="item">
+                    <div class="item_body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="item_img_and_info_holder">
+                                    <div class="item_type_img_holder">
+                                        <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                    </div>
+                                    <div class="item_info">
+                                        <a class="black_link no_decoration" href="~/Web/File">
+                                            <h6 class="item_title">database midterm exam</h6>
+                                        </a>
+                                        <span class="item_college">Information technology - <span>Computer science</span></span>
+                                        <a class="black_link no_decoration" style="display:block" href="#">
+                                            <div class="item_owner">
+                                                <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                <span class="item_owner_name">omar kishko</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item_statistics">
+                                    <div class="statistic">
+                                        <i class="fa fa-heart"></i> 184
+                                    </div>
+                                    <div class="statistic">
+                                        <i class="fa fa-eye"></i> 301
+                                    </div>
+                                    <div class="statistic">
+                                        <i class="fa fa-download"></i> 190
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="item_date">2018</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="item">
+                    <div class="item_body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="item_img_and_info_holder">
+                                    <div class="item_type_img_holder">
+                                        <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                    </div>
+                                    <div class="item_info">
+                                        <a class="black_link no_decoration" href="~/Web/File">
+                                            <h6 class="item_title">database midterm exam</h6>
+                                        </a>
+                                        <span class="item_college">Information technology - <span>Computer science</span></span>
+                                        <a class="black_link no_decoration" style="display:block" href="#">
+                                            <div class="item_owner">
+                                                <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                <span class="item_owner_name">omar kishko</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="item_statistics">
+                                    <div class="statistic">
+                                        <i class="fa fa-heart"></i> 184
+                                    </div>
+                                    <div class="statistic">
+                                        <i class="fa fa-eye"></i> 301
+                                    </div>
+                                    <div class="statistic">
+                                        <i class="fa fa-download"></i> 190
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="item_date">2017</span>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        // toggle favorite icon 
+        $('#favorite_btn').on('click', function () {
+            $('#favorite_btn i.fa').toggleClass('fa-heart-o fa-heart');
+        });
+      
+    </script>
+}

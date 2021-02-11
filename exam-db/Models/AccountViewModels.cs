@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+//this class contain View model of All Required model to deal with 
 namespace exam_db.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -71,9 +72,6 @@ namespace exam_db.Models
         public string lastname { get; set; }
         public int departmentId { get; set; }
         public int collegeId { get; set; }
-
-
-
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

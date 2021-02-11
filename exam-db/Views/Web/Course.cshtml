@@ -1,0 +1,294 @@
+﻿
+<link href="~/Content/courses.css" rel="stylesheet" />
+<style>
+
+    .years_select_li {
+        display: flex;
+        align-items: center;
+    }
+
+        .years_select_li label {
+            margin-right: 10px;
+            margin-top: 5px;
+            color: #8b9095;
+            font-weight: 450;
+        }
+
+        .years_select_li select {
+            padding-left: 15px;
+            padding-right: 28px;
+        }
+</style>
+<div class="container">
+    <div class="courses_page">
+        <h4 class="courses_page_title">@ViewBag.courseName</h4>
+
+        @* Main Taps *@
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id=" -tab" data-toggle="tab" href="#exams" role="tab" aria-controls="exams" aria-selected="true">Exams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link test" id=" -tab" data-toggle="tab" href="#quizs" role="tab" aria-controls="quizs" aria-selected="false">Quizs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link test" id=" -tab" data-toggle="tab" href="#summaries" role="tab" aria-controls="summaries" aria-selected="false">Summaries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link test" id=" -tab" data-toggle="tab" href="#others" role="tab" aria-controls="others" aria-selected="false">Others</a>
+            </li>
+            <li class="nav-item ml-auto years_select_li">
+                <label>Years</label>
+                <select class="custom-select custom-select-sm">
+                    <option selected value="">2019</optionselected>
+                    <option value="">2018</option>
+                    <option value="">2017</option>
+                </select>
+            </li>
+        </ul>
+        <!-- Taps Content -->
+        <div class="tab-content" id="">
+            <!-- exams content  -->
+            <div class="tab-pane fade show active" id="exams">
+                <div class="row">
+                    @foreach (var file in ViewBag.exams)
+                    {
+                        <div class="col-md-12">
+                            <div class="item">
+                                <div class="item_body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="item_img_and_info_holder">
+                                                <div class="item_type_img_holder">
+                                                    <img class="item_type_img" src="~/Content/images/files_types/pdf.png" />
+                                                </div>
+                                                <div class="item_info">
+                                                    <a class="black_link no_decoration" href="~/Web/File">
+                                                        <h6 class="item_title">@file.title</h6>
+                                                    </a>
+                                                    <span class="item_college">@ViewBag.CollegeName - <span>@ViewBag.departmentName</span></span>
+                                                    <a class="black_link no_decoration" style="display:block" href="#">
+                                                        <div class="item_owner">
+                                                            <img class="item_owner_img" src="~/Content/images/avatar.png" />
+                                                            <span class="item_owner_name">omar kishko</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="item_statistics">
+                                                <div class="statistic">
+                                                    <i class="fa fa-heart"></i>@file.like_number
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-eye"></i> @file.view_numbre
+                                                </div>
+                                                <div class="statistic">
+                                                    <i class="fa fa-download"></i> @file.Download_number
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="item_date">@file.year</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+                <nav class="pagination_nav">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- quizs content  -->
+            <div class="tab-pane fade custome" id="quizs"></div>
+
+            <!-- summaries content  -->
+            <div class="tab-pane fade custome" id="summaries"></div>
+
+            <!-- others content  -->
+            <div class="tab-pane fade custome" id="others"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(".test").on("click", function () {
+            var url = $(this).attr("href");
+            console.log(url);
+            var filetype = url.split("#");
+            
+            $.ajax({
+                url: '@Url.Action("GetFiles","Web")',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    filetype: filetype[1],
+                    courseId: @ViewBag.CourseId
+                },
+                success: function (result) {
+                    console.log(result.data[0].file);
+                    var resultdata = JSON.parse(result.data);
+                    console.log(resultdata[0].file);
+                    var data = resultdata[0].file;
+                    $('.custome').empty();
+                    var ftype = filetype[1];
+                    var filecontainer = document.getElementById(ftype);
+                    
+                    console.log(ftype);
+                    
+                    var row = document.createElement("div");
+                    row.setAttribute("class", "row");
+                    filecontainer.appendChild(row);
+
+                    var colmd12 = document.createElement("div");
+                    colmd12.setAttribute("class", "col-md-12");
+                    row.appendChild(colmd12);
+
+                    var item = document.createElement("div");
+                    item.setAttribute("class", "item");
+                    colmd12.appendChild(item);
+
+                    var item_body = document.createElement("div");
+                    item_body.setAttribute("class", "item_body");
+                    item.appendChild(item_body);
+
+                    var row2 = document.createElement("div");
+                    row2.setAttribute("class", "row");
+                    item_body.appendChild(row2);
+
+                    var colmd8 = document.createElement("div");
+                    colmd8.setAttribute("class", "col-md-8");
+                    row2.appendChild(colmd8);
+
+                    var item_img_and_info_holder = document.createElement("div");
+                    item_img_and_info_holder.setAttribute("class", "item_img_and_info_holder");
+                    colmd8.appendChild(item_img_and_info_holder);
+
+
+                    var item_type_img_holder = document.createElement("div");
+                    item_type_img_holder.setAttribute("class", "item_type_img_holder");
+                    item_img_and_info_holder.appendChild(item_type_img_holder);
+                    
+                    var item_type_img = document.createElement("img");
+                    item_type_img.setAttribute("class", "item_type_img");
+                    item_type_img.setAttribute("src", '/Content/images/files_types/pdf.png');
+                    item_type_img_holder.appendChild(item_type_img);
+
+                    var item_info = document.createElement("div");
+                    item_info.setAttribute("class", "item_info");
+                    item_img_and_info_holder.appendChild(item_info);
+
+                    var link = document.createElement("a");
+                    link.setAttribute("class", "black_link no_decoration");
+                    item_info.appendChild(link);
+
+                    
+
+                    var fileTitle = document.createElement("h6");
+                    fileTitle.innerText = data.title;
+                    link.appendChild(fileTitle);
+         
+                    var span = document.createElement("span");
+                    span.setAttribute("class", "item_college");
+                    span.innerText =' @ViewBag.CollegeName ';
+
+                    var innerSpan = document.createElement("span");
+                    innerSpan.innerText = '@ViewBag.departmentName ';
+                    span.appendChild(innerSpan);
+                    item_info.appendChild(span);
+
+                    var namelink = document.createElement("a");
+                    namelink.setAttribute("class", "black_link no_decoration");
+                    namelink.setAttribute("style", "display:block");
+                    namelink.setAttribute("href", "#");
+
+                    var item_owner = document.createElement("div");
+                    item_owner.setAttribute("class", "item_owner");
+                    namelink.appendChild(item_owner);
+
+                    var item_owner_img = document.createElement("img");
+                    item_owner_img.setAttribute("class", "item_owner_img");
+                    item_owner_img.setAttribute("src", "/Content/images/avatar.png");
+                    item_owner.appendChild(item_owner_img);
+
+                    var item_owner_name = document.createElement("span");
+                    item_owner_name.setAttribute("class", "item_owner_name");
+                    item_owner_name.innerText = " omar kishko";
+                    item_owner.appendChild(item_owner_name);
+                    item_info.appendChild(namelink);
+
+
+
+
+                    var colmd4 = document.createElement("div");
+                    colmd4.setAttribute("class", "col-md-4");
+                    row2.appendChild(colmd4);
+
+                    var item_statistics = document.createElement("div");
+                    item_statistics.setAttribute("class", "item_statistics");
+                    colmd4.appendChild(item_statistics);
+
+                    var statistic_heart = document.createElement("div");
+                    statistic_heart.setAttribute("class", "statistic");
+                    item_statistics.appendChild(statistic_heart);
+                    var heart = document.createElement("i");
+                    heart.setAttribute("class", "fa fa-heart");
+                    heart.innerText = " " + data.like_number;
+                    statistic_heart.appendChild(heart);
+                  
+
+                    var statistic_eye = document.createElement("div");
+                    statistic_eye.setAttribute("class", "statistic");
+                    item_statistics.appendChild(statistic_eye);
+
+                    var eye = document.createElement("i");
+                    eye.setAttribute("class", "fa fa-eye");
+                    eye.innerText = " " + data.view_numbre;
+                    statistic_eye.appendChild(eye);
+
+                    var statistic_download = document.createElement("div");
+                    statistic_download.setAttribute("class", "statistic");
+                    item_statistics.appendChild(statistic_download);
+
+                    var download = document.createElement("i");
+                    download.setAttribute("class", "fa fa-download");
+                    download.innerText = " " + data.Download_number;
+                    statistic_download.appendChild(download);
+
+                    var item_date = document.createElement("span");
+                    item_date.setAttribute("class", "item_date");
+                    item_date.innerText = " " + data.year;
+                    item_body.appendChild(item_date);
+
+
+
+                },
+                 failure: function (response) {
+                    alert(response.responseText);
+                    console.log(response.responseText);
+                 },
+                error: function (response) {
+                    alert(response.responseText);
+                    console.log(response.responseText);
+                }
+            });
+        });
+    </script>
+   
+
+
+}

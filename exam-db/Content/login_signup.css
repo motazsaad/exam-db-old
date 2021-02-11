@@ -115,13 +115,17 @@ label {
         color: var(--main-bg-color)
     }
 
-input.form-control {
+input.form-control,
+select.form-control  {
     font-weight: 500;
     font-size: 20px;
     background-color: var(--gray-light);
     background-image: none;
     color: #222;
     border-color: var(--gray-dark);
+}
+select.form-control {
+    font-size: 18px;
 }
 
 input[type="submit"] {

@@ -1,0 +1,215 @@
+﻿ 
+.profile_page {
+    background: #fff;
+    padding: 50px;
+    padding-top: 8px;
+    min-height: calc(100vh - 65px)
+}
+
+.profile_header {
+    background-color: #021b3f;
+    height: 200px;
+    background: url('images/profile-background.png') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+/* Start Profile Header */
+.profile_header .profile_user {
+    display: flex;
+    
+}
+    .profile_header .profile_user .user_img_holder {
+        width: 100px;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+.profile_header .profile_user .user_img_holder img {
+    width: 100%
+}
+    .profile_header .profile_user .user_info_holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+        
+    
+.profile_header .profile_user .user_info_holder .username {
+    color: #fff
+}
+        .profile_header .profile_user .user_info_holder .user_college {
+            color: #ABDDF4;
+            font-weight: normal !important;
+        }
+/* End Profile Header */
+/* Start Profile page Navbar */
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #3c79ea;
+    border-color: #fff #fff #3c79ea;
+}
+
+.nav-tabs .nav-link {
+    color: #8b9095;
+    background-color: #fff;
+    border-color: #fff #fff #dee2e6 #fff;
+}
+
+.nav-tabs .nav-link {
+    padding-bottom: 20px;
+    font-weight: 450
+}
+
+    .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+        color: #3c79ea;
+        border-color: #fff #fff #3c79ea;
+    }
+/* End Profile page Navbar */
+/* Start Personal Info Tap */
+
+.personal_info{
+    padding:0 !important
+}
+.personal_info .personal_info_title {
+    margin-bottom: 30px;
+}
+.personal_info .info_filed {
+    border-bottom: 1px solid #dee2e6;
+    padding: 10px 5px;
+    position: relative;
+}
+
+    .personal_info .info_filed.editable:hover {
+        background: #f3f3f3;
+         cursor: pointer
+    }
+        
+        .info_filed.editable::after {
+            content: "\f105";
+            font: normal normal normal 14px/1 FontAwesome;
+            border: none;
+            vertical-align: 1px;
+            color: var(--main-color);
+            position: absolute;
+            right: 15px;
+            top: 16px;
+        }
+.personal_info .info_filed .info_filed_key{
+    color: #979797;
+    font-weight: 450;
+    font-size: 14px
+}
+    .personal_info .info_filed .info_filed_value {
+        color: #444
+    }
+.personal_info section {
+    padding-top: 50px
+}
+
+.personal_info .modal-header {
+    /*border-bottom: none !important*/
+}
+
+/* End Personal Info Tap */
+/* Start Profile Modals */
+
+.profile_modal label {
+    position: absolute;
+    transform: translateY(11px);
+    left: 13px;
+    color: #9c9c9c;
+    transition: all 0.25s ease;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    font-size: 14px;
+}
+
+.input_field_wrap {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+label.active {
+    transform: translateY(6px);
+    left: 13px;
+    font-size: 14px;
+}
+
+label.highlight {
+    color: var(--main-color)
+}
+
+.profile_modal .modal-content {
+    border: none
+}
+
+.profile_modal .modal-body {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.profile_modal .modal-header {
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 50px
+}
+
+.profile_modal .modal-header {
+    border: none
+}
+
+.profile_modal .modal-footer {
+    border: none;
+    padding: 0 40px 30px;
+    justify-content: center
+}
+
+    .profile_modal .modal-footer .btn {
+        border-radius: 30px;
+        width: 130px;
+ 
+    }
+.profile_modal input.form-control {
+    height: 44px;
+    padding: 5px 12px;
+}
+
+/* End Profile Modals */
+/* Start Uploaded list Tap */
+
+.profile_page .uploaded_list {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+    .profile_page .uploaded_list .item_upload_date {
+        font-size: 12px;
+        color: #878787;
+        margin-bottom:2px
+        /*position: absolute;
+        bottom: 8px;
+        right: 10px;*/
+    }
+
+    .profile_page .uploaded_list .item_upload_date i.fa{
+        background: #e1eaf9;
+        padding: 3px 5px;
+        font-size: 12px;
+        border-radius: 8px;
+        margin-right: 5px;
+        color: var(--main-color);
+    }
+
+.profile_page .uploaded_list .fa-bank {
+    background: #fff4c0;
+    padding: 5px 6px;
+    border-radius: 10px;
+    color: #ffbb24;
+    margin-right: 8px;
+}
+/* End Uploaded list Tap */
